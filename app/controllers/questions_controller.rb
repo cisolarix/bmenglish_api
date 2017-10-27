@@ -44,6 +44,6 @@ class QuestionsController < BaseController
 
   def question_params
     params.fetch(:question, {})
-          .permit(:id, :title, answers: [], options_attributes: [:id, :content])
+          .permit(:id, :title, :tag_list, answers: [], options_attributes: [:id, :content])
   end
 end

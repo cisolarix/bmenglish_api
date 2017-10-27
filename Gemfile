@@ -65,3 +65,5 @@ gem 'hashids', '~> 1.0', '>= 1.0.4'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 gem 'paranoia', '~> 2.3', '>= 2.3.1'
+
+gem 'acts-as-taggable-on', '~> 5.0'
