@@ -1,0 +1,19 @@
+<%= form_for @question,
+      url: @question.new_record? ? questions_path : question_path(id: @question.hash_id),
+      method: @question.new_record? ? :post : :put do |f| %>
+  <%= f.text_area :title %> <br>
+
+  <%= f.fields_for :options do |ff| %>
+    <% option = ff.object %>
+    <input
+      name="question[answers][]"
+      type="checkbox"
+      value="<%= option.hash_id %>"
+      id="option-checkbox-<%= option.hash_id %>"
+      <%= option.hash_id.in?(option.question.answers) ? 'checked': '' %> />
+
+    <%= ff.text_field :content %> <br>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

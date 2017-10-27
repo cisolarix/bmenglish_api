@@ -1,0 +1,21 @@
+<h4><%= @question.title %></h4>
+
+<table>
+  <% @question.options.each do |option| %>
+  <tr>
+    <td>
+      <input
+        type="checkbox"
+        value="<%= option.hash_id %>"
+        id="option-checkbox-<%= option.hash_id %>"
+        <%= option.hash_id.in?(option.question.answers) ? 'checked': '' %>
+        disabled>
+    </td>
+    <td>
+      <label for="option-checkbox-<%= option.hash_id %>"><%= option.content %></label>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to '编辑', edit_question_path(id: @question.hash_id) %>
