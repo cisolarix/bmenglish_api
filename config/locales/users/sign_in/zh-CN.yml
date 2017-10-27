@@ -1,0 +1,13 @@
+zh-CN:
+  activerecord:
+    errors:
+      models:
+        users/sign_in:
+          attributes:
+            base:
+              user_not_exist: '用户不存在'
+              cell_password_error: '手机号/密码错误，请检查后重试'
+            cell:
+              blank: '手机号码必填'
+            password:
+              blank: '密码必填'

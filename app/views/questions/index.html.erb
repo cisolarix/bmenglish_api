@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th>题干</th>
+    <th>操作</th>
+  </tr>
+
+  <tr>
+    <% @questions.each do |q| %>
+    <td>
+      <%= q.title %>
+    </td>
+    <td>
+      <%= link_to '编辑', edit_question_path(q)%>
+      <%= link_to '删除', q, method: :delete, data: { confirm: '真要删除此题目吗？' } %>
+    </td>
+    <% end %>
+  </tr>
+</table>
+
+<%= paginate @questions %>

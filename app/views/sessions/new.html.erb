@@ -1,0 +1,11 @@
+
+
+<h4>登录页面</h4>
+
+<%= render "layouts/flash_messages", flash: flash %>
+
+<%= form_for @sign_in, url: sign_in_path do |f| %>
+  <%= f.text_field :cell %> <br>
+  <%= f.password_field :password %> <br>
+  <%= f.submit '登录' %>
+<% end %>
