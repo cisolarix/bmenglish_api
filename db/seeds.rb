@@ -15,3 +15,7 @@ u.save
 
   q.update answers: q.reload.options.pluck(:hash_id).sample(rand(4) + 1)
 end
+
+Faker::Lorem.words(10).uniq.each do |word|
+  Tag.create name: word
+end

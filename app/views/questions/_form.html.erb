@@ -3,6 +3,12 @@
       method: @question.new_record? ? :post : :put do |f| %>
   <%= f.text_area :title %> <br>
 
+  <select class="ui fluid search dropdown" multiple="" name="question[tag_list][]">
+    <% Tag.all.each do |t| %>
+      <option value="<%= t.name %>" <% if t.name.in?(@question.tag_list) %>selected<% end %>><%= t.name %></option>
+    <% end %>
+  </select>
+
   <%= f.fields_for :options do |ff| %>
     <% option = ff.object %>
     <input
@@ -17,3 +23,8 @@
 
   <%= f.submit %>
 <% end %>
+
+<script>
+  console.log('ready')
+  $('.ui.dropdown').dropdown()
+</script>
