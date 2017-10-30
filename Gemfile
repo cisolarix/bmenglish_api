@@ -69,3 +69,5 @@ gem 'paranoia', '~> 2.3', '>= 2.3.1'
 gem 'acts-as-taggable-on', '~> 5.0'
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+
+gem 'webpacker', '~> 3.0', '>= 3.0.2'
