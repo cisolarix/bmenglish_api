@@ -7,6 +7,15 @@ class QuestionsController < BaseController
     load_question
   end
 
+  def new
+    build_question
+    @question.options.build
+  end
+
+  def create
+
+  end
+
   def edit
     load_question
   end
@@ -29,7 +38,6 @@ class QuestionsController < BaseController
     # TODO: policy
     @q = Question.ransack params[:q]
     @results = @q.result(distinct: true)
-    # @q.sorts = ['attachments_updated_at desc', 'name_pinyin asc'] if @q.sorts.empty?
     @questions = @results.page params[:page]
   end
 
