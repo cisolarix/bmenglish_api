@@ -9,11 +9,11 @@ class QuestionsController < BaseController
 
   def new
     build_question
-    @question.options.build
   end
 
   def create
-
+    build_question
+    @question.save
   end
 
   def edit
