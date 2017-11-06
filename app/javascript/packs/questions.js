@@ -26,19 +26,22 @@
 //
 
 import Vue from 'vue/dist/vue.esm'
+// import Vue from 'vue'
 import store from '../store'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import Questions from '../components/Questions.vue'
+
+Vue.use(ElementUI)
 
 document.addEventListener('DOMContentLoaded', () => {
   var element = document.getElementById("questions")
   if (element != null) {
     const app = new Vue({
       el: '#questions',
-      data: {
-        // questions: store.state.questions
-      },
       components: { Questions },
-      store
+      store,
+      render: h => h(Questions)
     })
   }
 })

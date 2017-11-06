@@ -3,13 +3,5 @@ class Option < ApplicationRecord
 
   belongs_to :question
 
-  # TODO: 校验 hash_id 的唯一性
-
-  before_create :populate_hash_id
-
-  private
-
-  def populate_hash_id
-    self.hash_id = SecureRandom.hex
-  end
+  default_scope { order(id: :desc) }
 end

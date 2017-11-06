@@ -1,16 +1,27 @@
 <template lang="html">
-  <div class="">
-    <form class="" action="index.html" method="post">
-      <label for="">题干</label>
-      <input type="text" name="" v-model="currentQuestion.title" placeholder="题干内容">
+  <el-form ref="form" :model="currentQuestion" label-width="80px" size="mini">
+    <el-form-item label="题目">
+      <el-input v-model="currentQuestion.title"></el-input>
+    </el-form-item>
+    <el-form-item label="选项">
+      <div v-for="option in currentQuestion.options">
+        <el-checkbox v-model="option.correct"></el-checkbox>
+        <el-input v-model="option.content" placeholder="请输入内容"></el-input>
+      </div>
+    </el-form-item>
 
-      <!-- <ul>
-        <li><input type="checkbox" /><input type="text" placeholder="选项内容"></li>
-      </ul> -->
-      <button type="button" @click.preventDefault="click">保存</button>
-    </form>
+    <div>{{ currentQuestion.title }}</div>
+    <ul>
+      <li v-for="option in currentQuestion.options">
+        {{ option.correct }}: {{ option.content }}
+      </li>
+    </ul>
 
-  </div>
+    <el-form-item size="large">
+      <el-button>取消</el-button>
+      <el-button type="primary" @click='submitted'>保存</el-button>
+    </el-form-item>
+  </el-form>
 </template>
 
 <script>
@@ -21,12 +32,17 @@ export default {
     ...mapState(['currentQuestion'])
   },
   methods: {
-    click(event) {
-      console.log(this.$store)
-      console.log('dispatch createQuestion')
-      this.$store.dispatch('createQuestion', {
-        newQuestion: currentQuestion
+    submitted(event) {
+      let currentQuestion = this.currentQuestion
+      let data = {
+        id: currentQuestion.id,
+        title: currentQuestion.title,
+        options_attributes: currentQuestion.options
+      }
+      this.$store.dispatch('updateQuestion', {
+        question: data
       })
+      console.log(JSON.stringify(data))
     }
   }
 }
