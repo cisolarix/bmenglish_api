@@ -5,8 +5,23 @@
     </el-form-item>
     <el-form-item label="选项">
       <div v-for="option in currentQuestion.options">
-        <el-checkbox v-model="option.correct"></el-checkbox>
-        <el-input v-model="option.content" placeholder="请输入内容"></el-input>
+        <el-row type="flex" class="row-bg" justify="space-around">
+          <el-col :span="20">
+            <div class="grid-content bg-purple">
+              <el-input v-model="option.content" placeholder="请输入内容"></el-input>
+            </div>
+          </el-col>
+          <el-col :span="1">
+            <div class="grid-content bg-purple">
+              <el-checkbox v-model="option.correct"></el-checkbox>
+            </div>
+          </el-col>
+          <el-col :span="2">
+            <div class="grid-content bg-purple">
+              <i class="el-icon-delete"></i>
+            </div>
+          </el-col>
+        </el-row>
       </div>
     </el-form-item>
 

@@ -2,7 +2,14 @@
 
   <div class="row">
     <el-container>
-      <el-header>题目录入管理</el-header>
+      <el-header>
+        <el-row type="flex" class="row-bg">
+          <el-col :span="6"><div class="grid-content bg-purple"><h1>题目录入管理</h1></div></el-col>
+          <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+          <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
+          <el-col :span="6"><el-button type="primary" @click="buildQuestion" style="float: right;">新增题目</el-button><div class="grid-content bg-purple"></div></el-col>
+        </el-row>
+      </el-header>
       <el-container>
         <el-main>
           <el-table
@@ -33,11 +40,12 @@ import _ from 'lodash'
 import QuestionForm from './QuestionForm.vue'
 
 export default {
-  // data() {
-  //   selectedQuestion: null
-  // },
   computed: {
-    ...mapState(['questions', 'currentQuestion'])
+    ...mapState(['questions']),
+    currentQuestion: {
+      get () { return this.$store.state.currentQuestion },
+      set (value) { this.$store.commit('setQuestion', value) }
+    }
   },
   methods: {
     clicked(index) {
@@ -46,6 +54,18 @@ export default {
     onCurrentChange(currentRow) {
       this.$store.commit('selectQuestion', { currentQuestion: _.cloneDeep(currentRow) })
       console.log('onCurrentChange: ' + JSON.stringify(currentRow))
+    },
+    buildQuestion() {
+      this.currentQuestion = {
+        id: null,
+        title: '',
+        options: [
+          { id: null, content: '', correct: false },
+          { id: null, content: '', correct: false },
+          { id: null, content: '', correct: false },
+          { id: null, content: '', correct: false }
+        ]
+      }
     }
   },
   components: {

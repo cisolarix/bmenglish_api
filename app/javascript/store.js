@@ -8,7 +8,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     questions: [],
-    currentQuestion: null
+    currentQuestion: null,
   },
   mutations: {
     fetchedList(state, payload) {
@@ -17,6 +17,9 @@ export default new Vuex.Store({
     selectQuestion(state, payload) {
       console.log(payload)
       state.currentQuestion = payload.currentQuestion
+    },
+    setQuestion(state, value) {
+      state.currentQuestion = value
     }
   },
   actions: {
