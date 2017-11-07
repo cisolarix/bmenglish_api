@@ -1,5 +1,4 @@
 <template>
-
   <div class="row">
     <el-container>
       <el-header>
@@ -7,7 +6,7 @@
           <el-col :span="6"><div class="grid-content bg-purple"><h1>题目录入管理</h1></div></el-col>
           <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
           <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
-          <el-col :span="6"><el-button type="primary" @click="buildQuestion" style="float: right;">新增题目</el-button><div class="grid-content bg-purple"></div></el-col>
+          <el-col :span="6"><el-button type="primary" @click="buildQuestion">新增题目</el-button><div class="grid-content bg-purple"></div></el-col>
         </el-row>
       </el-header>
       <el-container>
@@ -19,12 +18,22 @@
             highlight-current-row
             @current-change="onCurrentChange">
             <el-table-column
+              prop="id"
+              label="ID"
+              min-width='10%'>
+            </el-table-column>
+            <el-table-column
               prop="title"
               label="题目"
-              min-width='100%'
-              >
+              min-width='90%'>
             </el-table-column>
           </el-table>
+
+          <el-pagination
+            layout="prev, pager, next"
+            :total="50"
+            @current-change="onCurrentPageChange">
+          </el-pagination>
         </el-main>
         <el-aside width="40%">
           <question-form v-if="currentQuestion"></question-form>
@@ -53,7 +62,6 @@ export default {
     },
     onCurrentChange(currentRow) {
       this.$store.commit('selectQuestion', { currentQuestion: _.cloneDeep(currentRow) })
-      console.log('onCurrentChange: ' + JSON.stringify(currentRow))
     },
     buildQuestion() {
       this.currentQuestion = {
@@ -66,6 +74,9 @@ export default {
           { id: null, content: '', correct: false }
         ]
       }
+    },
+    onCurrentPageChange(currentPage) {
+      this.$store.dispatch('fetchList', { page: currentPage })
     }
   },
   components: {

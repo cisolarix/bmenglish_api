@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 export default {
-  fetchList() {
-    return axios.get('http://localhost:3000/questions.json')
+  fetchList(page) {
+    return axios.get(`http://localhost:3000/questions.json?page=${page}`)
   },
   updateQuestion(data) {
     let id = data.question.id

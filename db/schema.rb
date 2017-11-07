@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20171106115639) do
     t.datetime "updated_at", null: false
     t.string "hash_id"
     t.datetime "deleted_at"
+    t.text "remark"
     t.index ["deleted_at"], name: "index_questions_on_deleted_at"
     t.index ["hash_id"], name: "questions_hash_id_index"
   end

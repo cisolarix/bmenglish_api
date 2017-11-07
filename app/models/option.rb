@@ -3,5 +3,5 @@ class Option < ApplicationRecord
 
   belongs_to :question
 
-  default_scope { order(id: :desc) }
+  default_scope { order(id: :asc) }
 end

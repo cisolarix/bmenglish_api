@@ -3,9 +3,6 @@ class QuestionsController < BaseController
 
   def index
     load_questions
-    puts '*' * 120
-    ap @questions
-    puts '*' * 120
   end
 
   def show
@@ -37,9 +34,10 @@ class QuestionsController < BaseController
     # TODO: policy
     @q = Question.includes(:options).ransack params[:q]
     @q.sorts = 'id desc' if @q.sorts.empty?
-    @results = @q.result(distinct: true)
-
-    @questions = @results.page params[:page]
+    results = @q.result(distinct: true)
+    @current_page = params[:page] || 1
+    @total = results.count
+    @questions = results.page(@current_page).per(10)
   end
 
   def load_question
