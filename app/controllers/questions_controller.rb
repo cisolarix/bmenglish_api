@@ -9,18 +9,10 @@ class QuestionsController < BaseController
     load_question
   end
 
-  # def new
-  #   build_question
-  # end
-
   def create
     build_question
     @question.save
   end
-
-  # def edit
-  #   load_question
-  # end
 
   def update
     load_question
