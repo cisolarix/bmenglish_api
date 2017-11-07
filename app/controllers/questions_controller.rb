@@ -1,4 +1,6 @@
 class QuestionsController < BaseController
+  skip_before_action :verify_authenticity_token, only: %w[update create destroy]
+
   def index
     load_questions
   end
@@ -7,34 +9,36 @@ class QuestionsController < BaseController
     load_question
   end
 
-  def edit
-    load_question
+  def create
+    build_question
+    @question.save
   end
 
   def update
     load_question
     build_question
-    if @question.save
-      flash[:info] = '成功修改题目'
-      redirect_to question_path(id: @question.hash_id)
-    else
-      flash[:info] = @question.errors.full_messages.first
-      redirect_back fallback_location: edit_question_path(id: @question.hash_id)
-    end
+    @question.save
+  end
+
+  def destroy
+    load_question
+    @question.destroy
   end
 
   private
 
   def load_questions
     # TODO: policy
-    @q = Question.ransack params[:q]
-    @results = @q.result(distinct: true)
-    # @q.sorts = ['attachments_updated_at desc', 'name_pinyin asc'] if @q.sorts.empty?
-    @questions = @results.page params[:page]
+    @q = Question.includes(:options).ransack params[:q]
+    @q.sorts = 'id desc' if @q.sorts.empty?
+    results = @q.result(distinct: true)
+    @current_page = params[:page] || 1
+    @total = results.count
+    @questions = results.page(@current_page).per(10)
   end
 
   def load_question
-    @question = Question.find_by hash_id: params[:id]
+    @question = Question.find params[:id]
   end
 
   def build_question
@@ -44,6 +48,6 @@ class QuestionsController < BaseController
 
   def question_params
     params.fetch(:question, {})
-          .permit(:id, :title, tag_list: [], answers: [], options_attributes: [:id, :content])
+          .permit(:id, :title, tag_list: [], options_attributes: [:id, :question_id, :content, :correct, :_destroy])
   end
 end

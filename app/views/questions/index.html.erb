@@ -1,20 +1,6 @@
-<table>
-  <tr>
-    <th>题干</th>
-    <th>操作</th>
-  </tr>
+<div id='questions'>
+  <Questions questions="questions"></Questions>
+</div>
 
-    <% @questions.each do |q| %>
-    <tr>
-      <td>
-        <%= link_to q.title, question_path(id: q.hash_id) %>
-      </td>
-      <td>
-        <%= link_to '编辑', edit_question_path(id: q.hash_id) %>
-        <%= link_to '删除', question_path(id: q.hash_id), method: :delete, data: { confirm: '真要删除此题目吗？' } %>
-      </td>
-    </tr>
-    <% end %>
-</table>
-
-<%= paginate @questions %>
+<%= javascript_pack_tag 'questions' %>
+<%= stylesheet_pack_tag 'questions' %>

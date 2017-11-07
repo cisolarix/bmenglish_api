@@ -47,15 +47,12 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-gem 'less-rails-semantic_ui', '~> 2.2', '>= 2.2.13.0'
-gem 'autoprefixer-rails', '~> 7.1', '>= 7.1.6'
-gem 'therubyracer', '~> 0.12.3'
-
 gem 'active_type', '~> 0.7.4'
 
 gem 'awesome_print', '~> 1.8'
 
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
+
 gem 'ransack', '~> 1.8', '>= 1.8.4'
 
 gem 'faker', '~> 1.8', '>= 1.8.4'
@@ -69,3 +66,5 @@ gem 'paranoia', '~> 2.3', '>= 2.3.1'
 gem 'acts-as-taggable-on', '~> 5.0'
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+
+gem 'webpacker', '~> 3.0', '>= 3.0.2'
