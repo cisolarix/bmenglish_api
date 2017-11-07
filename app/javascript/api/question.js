@@ -11,5 +11,8 @@ export default {
     } else {
       return axios.post(`http://localhost:3000/questions.json`, data)
     }
+  },
+  deleteQuestion(id) {
+    return axios.delete(`http://localhost:3000/questions/${id}.json`)
   }
 }

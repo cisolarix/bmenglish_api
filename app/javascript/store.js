@@ -43,6 +43,13 @@ export default new Vuex.Store({
           context.commit('fetchedList', response.data)
         })
         .catch(error => { console.log(error) })
+    },
+    deleteQuestion(context, payload) {
+      api.deleteQuestion(payload.id)
+         .then(response => {
+           context.dispatch('fetchList')
+         })
+         .catch(error => { console.log(error) })
     }
   }
 })

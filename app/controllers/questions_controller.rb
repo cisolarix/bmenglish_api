@@ -1,5 +1,5 @@
 class QuestionsController < BaseController
-  skip_before_action :verify_authenticity_token, only: %w[update create]
+  skip_before_action :verify_authenticity_token, only: %w[update create destroy]
 
   def index
     load_questions
@@ -26,6 +26,11 @@ class QuestionsController < BaseController
     load_question
     build_question
     @question.save
+  end
+
+  def destroy
+    load_question
+    @question.destroy
   end
 
   private

@@ -3,19 +3,20 @@
     <el-container>
       <el-header>
         <el-row type="flex" class="row-bg">
-          <el-col :span="6"><div class="grid-content bg-purple"><h1>题目录入管理</h1></div></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
-          <el-col :span="6"><div class="grid-content bg-purple-light"></div></el-col>
-          <el-col :span="6"><el-button type="primary" @click="buildQuestion">新增题目</el-button><div class="grid-content bg-purple"></div></el-col>
+          <el-col :span="6"><h1>题目录入管理</h1></el-col>
+          <el-col :span="6"></el-col>
+          <el-col :span="6"></el-col>
+          <el-col :span="6">
+            <el-button type="primary" @click="buildQuestion">新增题目</el-button>
+          </el-col>
         </el-row>
       </el-header>
       <el-container>
-        <el-main>
+        <el-main id="container-main">
           <el-table
             :data="questions"
-            width='100%'
+            width='50%'
             border
-            highlight-current-row
             @current-change="onCurrentChange">
             <el-table-column
               prop="id"
@@ -27,18 +28,36 @@
               label="题目"
               min-width='90%'>
             </el-table-column>
-          </el-table>
 
-          <el-pagination
-            layout="prev, pager, next"
-            :total="50"
-            @current-change="onCurrentPageChange">
-          </el-pagination>
+            <el-table-column
+              fixed="right"
+              label="操作"
+              width="120">
+              <template slot-scope="scope">
+                <el-button
+                  @click.prevent="deleteRow(scope.row.id)"
+                  type="text"
+                  size="small">
+                  移除
+                </el-button>
+              </template>
+            </el-table-column>
+          </el-table>
         </el-main>
         <el-aside width="40%">
-          <question-form v-if="currentQuestion"></question-form>
+          <el-main>
+            <question-form v-if="currentQuestion"></question-form>
+          </el-main>
         </el-aside>
       </el-container>
+
+      <el-footer>
+        <el-pagination
+          layout="prev, pager, next"
+          :total="50"
+          @current-change="onCurrentPageChange">
+        </el-pagination>
+      </el-footer>
     </el-container>
   </div>
 </template>
@@ -77,6 +96,11 @@ export default {
     },
     onCurrentPageChange(currentPage) {
       this.$store.dispatch('fetchList', { page: currentPage })
+    },
+    deleteRow(questionId) {
+      if (confirm('真要删除这条题目吗？')) {
+        this.$store.dispatch('deleteQuestion', { id: questionId })
+      }
     }
   },
   components: {
@@ -87,3 +111,18 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .el-aside {
+    position: fixed;
+    right: 0;
+  }
+
+  .row {
+    width: 63%;
+  }
+
+  .el-button.el-button--primary {
+    transform: translate(90%, 50%);
+  }
+</style>
