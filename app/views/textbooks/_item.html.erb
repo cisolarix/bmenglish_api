@@ -1,0 +1,15 @@
+<% collection.each do |item, children| %>
+  <div>
+    <% if children.present? %>
+      <%= item[:title] %>
+    <% else %>
+      <%= link_to item[:title], '# TODO：待填充' %>
+    <% end %>
+  </div>
+
+  <% if children.present? %>
+    <div>
+      <%= render 'item', collection: children %>
+    </div>
+  <% end %>
+<% end %>
