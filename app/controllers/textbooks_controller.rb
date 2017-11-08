@@ -10,7 +10,7 @@ class TextbooksController < BaseController
   private
 
   def load_books
-    @books ||= Chapter.where(ancestry: nil)
+    @books ||= Textbook.all
   end
 
   def load_book
