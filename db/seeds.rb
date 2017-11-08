@@ -15,8 +15,6 @@ u.save
       { content: Faker::Lorem.words(4).join(' '), correct: [true, false].sample }
     ]
   )
-
-  q.update answers: q.reload.options.pluck(:hash_id).sample(rand(4) + 1)
 end
 
 Faker::Lorem.words(10).uniq.each do |word|

@@ -3,6 +3,7 @@ class QuestionsController < BaseController
 
   def index
     load_questions
+    load_chapters
   end
 
   def show
@@ -37,6 +38,17 @@ class QuestionsController < BaseController
     @questions = results.page(@current_page).per(10)
   end
 
+  def load_chapters
+    @chapters = 
+      begin
+        cs = Chapter.all.select { |c| !c.has_children? }
+        cs.each_with_object([]) do |c, acc|
+          acc << { id: c.id, title: "#{c.ancestors.pluck(:title).join(' ≫ ')} ≫ #{c.title}" }
+          acc
+        end
+      end
+  end
+
   def load_question
     @question = Question.find params[:id]
   end
@@ -48,6 +60,6 @@ class QuestionsController < BaseController
 
   def question_params
     params.fetch(:question, {})
-          .permit(:id, :title, tag_list: [], options_attributes: [:id, :question_id, :content, :correct, :_destroy])
+          .permit(:id, :title, chapter_ids: [], tag_list: [], options_attributes: [:id, :question_id, :content, :correct, :_destroy])
   end
 end

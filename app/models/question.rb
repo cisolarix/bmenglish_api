@@ -3,19 +3,11 @@ class Question < ApplicationRecord
   acts_as_taggable
 
   has_many :options, dependent: :destroy
+  has_and_belongs_to_many :chapters
+
   accepts_nested_attributes_for :options, update_only: true
 
-  # TODO: 校验 hash_id 的唯一性
-
-  before_create :populate_hash_id
-
   def correct_answers
-    @correct_answers ||= Option.where(hash_id: answers)
-  end
-
-  private
-
-  def populate_hash_id
-    self.hash_id = SecureRandom.hex
+    @correct_answers ||= options.where(correct: true)
   end
 end

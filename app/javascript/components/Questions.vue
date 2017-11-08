@@ -1,65 +1,69 @@
 <template>
-  <div class="row">
-    <el-container>
-      <el-header>
-        <el-row type="flex" class="row-bg">
-          <el-col :span="6"><h1>题目录入管理</h1></el-col>
-          <el-col :span="6"></el-col>
-          <el-col :span="6"></el-col>
-          <el-col :span="6">
-            <el-button type="primary" @click="buildQuestion">新增题目</el-button>
-          </el-col>
-        </el-row>
-      </el-header>
+  <el-container>
+    <el-header style="height: auto;">
       <el-container>
-        <el-main id="container-main">
-          <el-table
-            :data="questions"
-            width='50%'
-            border
-            @current-change="onCurrentChange">
-            <el-table-column
-              prop="id"
-              label="ID"
-              min-width='10%'>
-            </el-table-column>
-            <el-table-column
-              prop="title"
-              label="题目"
-              min-width='90%'>
-            </el-table-column>
-
-            <el-table-column
-              fixed="right"
-              label="操作"
-              width="120">
-              <template slot-scope="scope">
-                <el-button
-                  @click.prevent="deleteRow(scope.row.id)"
-                  type="text"
-                  size="small">
-                  移除
-                </el-button>
-              </template>
-            </el-table-column>
-          </el-table>
+        <el-main width="50%">
+          <el-row type="flex" class="row-bg">
+            <el-col :span="6"><h1>题目录入管理</h1></el-col>
+            <el-col :span="6"></el-col>
+            <el-col :span="6"></el-col>
+            <el-col :span="6">
+              <el-button type="primary" @click="buildQuestion">新增题目</el-button>
+            </el-col>
+          </el-row>
         </el-main>
-        <el-aside width="40%">
-          <el-main>
-            <question-form v-if="currentQuestion"></question-form>
-          </el-main>
-        </el-aside>
+        <el-aside width="40%"></el-aside>
       </el-container>
+    </el-header>
 
-      <el-footer>
-        <el-pagination
-          layout="prev, pager, next"
-          :total="50"
-          @current-change="onCurrentPageChange">
-        </el-pagination>
-      </el-footer>
+    <el-container>
+      <el-main id="container-main">
+        <el-table
+          :data="questions"
+          width='50%'
+          border
+          @current-change="onCurrentChange">
+          <el-table-column
+            prop="id"
+            label="ID"
+            min-width='10%'>
+          </el-table-column>
+          <el-table-column
+            prop="title"
+            label="题目"
+            min-width='90%'>
+          </el-table-column>
+
+          <el-table-column
+            fixed="right"
+            label="操作"
+            width="120">
+            <template slot-scope="scope">
+              <el-button
+                @click.prevent="deleteRow(scope.row.id)"
+                type="text"
+                size="small">
+                移除
+              </el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+      </el-main>
+      <el-aside width="40%">
+        <el-main>
+          <question-form v-if="currentQuestion"></question-form>
+        </el-main>
+      </el-aside>
     </el-container>
-  </div>
+
+    <el-footer>
+      <el-pagination
+        layout="prev, pager, next"
+        :total="50"
+        @current-change="onCurrentPageChange">
+      </el-pagination>
+    </el-footer>
+  </el-container>
 </template>
 
 <script>
@@ -113,16 +117,7 @@ export default {
 </script>
 
 <style scoped>
-  .el-aside {
-    position: fixed;
-    right: 0;
-  }
-
-  .row {
-    width: 63%;
-  }
-
   .el-button.el-button--primary {
-    transform: translate(90%, 50%);
+    transform: translate(84%, 50%);
   }
 </style>

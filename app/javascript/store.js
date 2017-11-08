@@ -11,12 +11,14 @@ export default new Vuex.Store({
     total: 0,
     currentPage: 1,
     currentQuestion: null,
+    chapters: []
   },
   mutations: {
     fetchedList(state, payload) {
       state.questions = payload.questions
       state.total = payload.total
       state.currentPage = payload.current_page
+      state.chapters = payload.chapters
     },
     selectQuestion(state, payload) {
       state.currentQuestion = payload.currentQuestion
