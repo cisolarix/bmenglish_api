@@ -90,6 +90,7 @@ export default {
       this.currentQuestion = {
         id: null,
         title: '',
+        chapter_ids: [],
         options: [
           { id: null, content: '', correct: false },
           { id: null, content: '', correct: false },
