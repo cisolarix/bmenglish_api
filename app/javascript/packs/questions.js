@@ -1,7 +1,6 @@
 import Vue from 'vue/dist/vue.esm'
 import store from '../store'
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
 import Questions from '../components/Questions.vue'
 
 Vue.use(ElementUI)
