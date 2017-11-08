@@ -1,10 +1,6 @@
 <% collection.each do |item, children| %>
   <div>
-    <% if children.present? %>
-      <%= item[:title] %>
-    <% else %>
-      <%= link_to item[:title], '# TODO：待填充' %>
-    <% end %>
+    <%= item[:title] %>
   </div>
 
   <% if children.present? %>
@@ -13,3 +9,8 @@
     </div>
   <% end %>
 <% end %>
+
+<div>
+  # TODO: 根据当前用户是否选取该练习册，以决定是否展示按钮
+  加入我的练习册
+</div>
