@@ -1,13 +1,14 @@
-<div class="ui dropdown">
-  <div class="text">File</div>
-  <i class="dropdown icon"></i>
-  <div class="menu">
-    <div class="item">New</div>
-    <div class="item">
-      <span class="description">ctrl + o</span>
-      Open...
-    </div>
+<div class="ui borderless main menu">
+  <div class="ui text container">
+    <a href="<%= sign_out_path %>" class="ui right floated dropdown item">
+      <%= current_user.name %><i class="dropdown icon"></i>
+      <div class="menu">
+        <div class="item">登出</div>
+      </div>
+    </a>
   </div>
 </div>
 
-<%= render 'item', collection: @book %>
+<div class="ui text container">
+  <%= render 'item', collection: @book %>
+</div>

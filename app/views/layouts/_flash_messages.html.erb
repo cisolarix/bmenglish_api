@@ -1,5 +1,5 @@
 <% flash.each do |type, message| %>
-  <%= content_tag :div, class: "alert #{type} alert-dismissable" do %>
+  <%= content_tag :div, class: "ui error message" do %>
     <%= button_tag 'x', class: 'close', data: { "dismiss" => "alert" } %>
     <%= message %>
   <% end %>

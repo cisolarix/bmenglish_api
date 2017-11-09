@@ -1,6 +1,8 @@
 class BaseController < ApplicationController
   before_action :login_required!
 
+  helper_method :current_user
+
   protected
 
   def login_required!
