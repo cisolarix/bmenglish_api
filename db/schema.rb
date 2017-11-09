@@ -10,21 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171106115639) do
+ActiveRecord::Schema.define(version: 20171108110140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chapters", force: :cascade do |t|
+    t.string "title"
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_chapters_on_ancestry"
+  end
+
+  create_table "chapters_questions", force: :cascade do |t|
+    t.bigint "chapter_id"
+    t.bigint "question_id"
+    t.index ["chapter_id"], name: "index_chapters_questions_on_chapter_id"
+    t.index ["question_id"], name: "index_chapters_questions_on_question_id"
+  end
 
   create_table "options", force: :cascade do |t|
     t.text "content"
     t.bigint "question_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "hash_id"
     t.datetime "deleted_at"
     t.boolean "correct", default: false
     t.index ["deleted_at"], name: "index_options_on_deleted_at"
-    t.index ["hash_id"], name: "options_hash_id_index"
     t.index ["question_id"], name: "index_options_on_question_id"
   end
 
@@ -40,11 +51,9 @@ ActiveRecord::Schema.define(version: 20171106115639) do
     t.text "tags", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "hash_id"
     t.datetime "deleted_at"
     t.text "remark"
     t.index ["deleted_at"], name: "index_questions_on_deleted_at"
-    t.index ["hash_id"], name: "questions_hash_id_index"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -77,7 +86,9 @@ ActiveRecord::Schema.define(version: 20171106115639) do
     t.string "password_digest", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type"
     t.index ["cell"], name: "users_cell_password_index"
+    t.index ["type"], name: "index_users_on_type"
   end
 
 end

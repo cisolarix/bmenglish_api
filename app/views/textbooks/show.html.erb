@@ -1,0 +1,14 @@
+<div class="ui borderless main menu">
+  <div class="ui text container">
+    <a href="<%= sign_out_path %>" class="ui right floated dropdown item">
+      <%= current_user.name %><i class="dropdown icon"></i>
+      <div class="menu">
+        <div class="item">登出</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="ui text container">
+  <%= render 'item', collection: @book %>
+</div>

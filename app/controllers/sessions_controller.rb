@@ -15,13 +15,16 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    logout
+    redirect_to sign_in_path
   end
 
   private
 
   def build_sign_in
     @sign_in = Users::SignIn.new
-    @sign_in.attributes = params.fetch(:users_sign_in, {}).permit(:cell, :password)
+    @sign_in.attributes = params.fetch(:users_sign_in, {})
+                                .permit(:cell, :password)
   end
 
   def login_as(user)
@@ -29,7 +32,7 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
   end
 
-  def logout_as(user)
+  def logout
     session[:user_id] = nil
   end
 end

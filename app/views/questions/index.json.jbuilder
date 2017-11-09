@@ -5,6 +5,7 @@ json.questions do
   json.array! @questions do |question|
     json.id question.id
     json.title question.title
+    json.chapter_ids question.chapter_ids
     json.options do
       json.array! question.options do |option|
         json.id option.id
@@ -13,4 +14,8 @@ json.questions do
       end
     end
   end
+end
+
+json.chapters do
+  json.array! @chapters
 end

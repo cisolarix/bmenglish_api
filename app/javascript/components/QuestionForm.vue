@@ -1,8 +1,20 @@
 <template lang="html">
   <el-form ref="form" :model="currentQuestion" label-width="80px" size="mini">
     <el-form-item label="题目">
-      <el-input v-model="currentQuestion.title"></el-input>
+      <el-input type="textarea" :autosize="{ minRows: 2 }" v-model="currentQuestion.title"></el-input>
     </el-form-item>
+
+    <el-form-item label="所属章节">
+      <el-select v-model="currentQuestion.chapter_ids" multiple placeholder="请选择">
+        <el-option
+          v-for="item in chapters"
+          :key="item.id"
+          :label="item.title"
+          :value="item.id">
+        </el-option>
+      </el-select>
+    </el-form-item>
+
     <el-form-item label="选项">
       <div v-for="option in currentQuestion.options">
         <el-row type="flex" class="row-bg" justify="start">
@@ -33,7 +45,7 @@ import { mapState } from 'vuex'
 
 export default {
   computed: {
-    ...mapState(['currentQuestion'])
+    ...mapState(['currentQuestion', 'chapters'])
   },
   methods: {
     submitted(event) {
@@ -41,7 +53,8 @@ export default {
       let data = {
         id: currentQuestion.id,
         title: currentQuestion.title,
-        options_attributes: currentQuestion.options
+        options_attributes: currentQuestion.options,
+        chapter_ids: currentQuestion.chapter_ids
       }
       this.$store.dispatch('updateQuestion', {
         question: data
@@ -53,3 +66,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  .el-select.el-select--mini {
+    width: 100%;
+  }
+</style>
