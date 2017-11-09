@@ -1,6 +1,7 @@
+<ul>
 <% collection.each do |item, children| %>
   <div>
-    <%= item[:title] %>
+    <li><%= item[:title] %></li>
   </div>
 
   <% if children.present? %>
@@ -9,3 +10,4 @@
     </div>
   <% end %>
 <% end %>
+</ul>

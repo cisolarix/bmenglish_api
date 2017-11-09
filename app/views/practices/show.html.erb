@@ -1,0 +1,252 @@
+<%= stylesheet_link_tag 'practices/show' %>
+
+<div class='container'>
+  <div class='scoreboard'>
+    <div class="ui fixed inverted menu" style="background: rgb(26, 188, 156); height: 52px;">
+      <div class="ui container">
+        <a href="/" class="header item router-link-active" style="border: none;"><span class="logo-name" style="padding-left: 5px;">2017年全省中小学生安全知识网络答题活动</span>
+        </a>
+        <div class="right header item">
+          <div class="ui hidden divider"></div>
+          <div id="userinfo_dropdown" class="ui floating dropdown button" tabindex="0"><i class="user icon"></i>
+            <div id="studentname" style="display: inline;">邓小林</div> <i class="dropdown icon" tabindex="0"><div class="menu" tabindex="-1"></div></i>
+            <div class="menu" tabindex="-1"><a href="/exam" class="item router-link-active"><i class="icon edit"></i> 答题</a> <a href="/score" class="item"><i class="search icon"></i> 成绩查询</a> <a href="javascript:;" class="item"><i class="sign out icon"></i> 注销</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="error_modal" class="ui modal"><i class="close icon"></i>
+      <div class="header">
+        提示信息
+      </div>
+      <div class="content">
+        <div class="description">
+          <p class="transition visible"><i class="frown icon"></i> <span id="tips"></span>
+          </p>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="ui positive right labeled icon button"><i class="checkmark icon"></i> 我知道了
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="app-main" style="min-height: 100%;">
+    <div id="exam_wrapper" class="ui stackable two column vertically divided grid container">
+      <div class="row">
+        <div id="Top50" class="wide column overlay fixed">
+          <div class="num hidden-xs">
+            <div id="count_down" class="ui segment">
+              <div class="time-item"><strong class="minute_show">00分</strong> <strong class="second_show">00秒</strong>
+              </div>
+            </div>
+            <div>
+              <div class="ui segment btn-num">
+                <a href="#question_1" class="btn btn-white active">1</a>
+                <a href="#question_2" class="btn btn-white error">2</a>
+                <a href="#question_3" class="btn btn-white error">3</a>
+                <a href="#question_4" class="btn btn-white error">4</a>
+                <a href="#question_5" class="btn btn-white error">5</a>
+                <a href="#question_6" class="btn btn-white error">6</a>
+                <a href="#question_7" class="btn btn-white error">7</a>
+                <a href="#question_8" class="btn btn-white error">8</a>
+                <a href="#question_9" class="btn btn-white error">9</a>
+                <a href="#question_10" class="btn btn-white error">10</a>
+                <a href="#question_11" class="btn btn-white active">11</a>
+                <a href="#question_12" class="btn btn-white error">12</a>
+                <a href="#question_13" class="btn btn-white error">13</a>
+                <a href="#question_14" class="btn btn-white active">14</a>
+                <a href="#question_15" class="btn btn-white error">15</a>
+                <a href="#question_16" class="btn btn-white error">16</a>
+                <a href="#question_17" class="btn btn-white error">17</a>
+                <a href="#question_18" class="btn btn-white error">18</a>
+                <a href="#question_19" class="btn btn-white error">19</a>
+                <a href="#question_20" class="btn btn-white error">20</a>
+                <a href="#question_21" class="btn btn-white error">21</a>
+                <a href="#question_22" class="btn btn-white error">22</a>
+                <a href="#question_23" class="btn btn-white error">23</a>
+                <a href="#question_24" class="btn btn-white error">24</a>
+                <a href="#question_25" class="btn btn-white error">25</a>
+                <a href="#question_26" class="btn btn-white error">26</a>
+                <a href="#question_27" class="btn btn-white error">27</a>
+                <a href="#question_28" class="btn btn-white error">28</a>
+                <a href="#question_29" class="btn btn-white error">29</a>
+                <a href="#question_30" class="btn btn-white error">30</a>
+              </div>
+              <a href="javascript:;" class="btn btn-white state bg1"></a><span>未答题</span>
+              <a href="javascript:;" class="btn btn-white state bg2"></a><span>已答题</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="four wide column"></div>
+            <div class="twelve wide column">
+              <button type="button" name="action" id="submit" class="ui button mobile-submit disabled">
+                交卷
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="padding0" class="four wide column"></div>
+        <div class="twelve wide column exam-content">
+          <div class="ui segment"><span id="exam_title">安全知识答题【二年级】</span>
+          </div>
+          <div id="question_loader">
+            <div class="ui active centered inline"></div>
+            <!---->
+            <div>
+              <div>
+                <p class="question-type">单选</p>
+                <div id="question_1" class="ui segment question transition visible" style="display: block !important;">
+                  <div id="question-1" class="card card-scss">
+                    <div class="card-content">
+                      <p>1. 下列食品中不得添加任何食品添加剂的品种是（）</p>
+                    </div>
+                    <div class="card-action card-action-scss">
+                      <div class="skin skin-square">
+                        <div class="skin-section">
+                          <form action="#" data-question-id="7368" data-sort-number="1">
+                            <div class="field right">
+                              <div class="iradio_square-green checked" style="position: relative;">
+                                <input type="radio" name="radio7368" id="radio7368_0" class="icheck-radio" value="A" style="position: absolute; opacity: 0;" disabled="disabled"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                              </div>
+                              <label for="radio7368_0" class="">A. 纯牛奶</label> <i class="big checkmark icon"></i>
+                            </div>
+                            <div class="field">
+                              <div class="iradio_square-green" style="position: relative;">
+                                <input type="radio" name="radio7368" id="radio7368_1" class="icheck-radio" value="B" style="position: absolute; opacity: 0;" disabled="disabled"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                              </div>
+                              <label for="radio7368_1" class="">B. 酱油</label>
+                              <!---->
+                            </div>
+                            <div class="field">
+                              <div class="iradio_square-green" style="position: relative;">
+                                <input type="radio" name="radio7368" id="radio7368_2" class="icheck-radio" value="C" style="position: absolute; opacity: 0;" disabled="disabled"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                              </div>
+                              <label for="radio7368_2" class="">C. 奶油</label>
+                              <!---->
+                            </div>
+                            <div class="field">
+                              <div class="iradio_square-green" style="position: relative;">
+                                <input type="radio" name="radio7368" id="radio7368_3" class="icheck-radio" value="D" style="position: absolute; opacity: 0;" disabled="disabled"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                              </div>
+                              <label for="radio7368_3">D. 火腿</label>
+                              <!---->
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="question_2" class="ui segment question hidden error" style="display: block !important;">
+                  <div id="question-2" class="card card-scss">
+                    <div class="card-content">
+                      <p>2. 食用劣质奶粉而形成的“大头娃娃”的患病原因主要是（）</p>
+                    </div>
+                    <div class="card-action card-action-scss">
+                      <div class="skin skin-square">
+                        <div class="skin-section">
+                          <form action="#" data-question-id="7372" data-sort-number="2">
+                            <div class="field right">
+                              <div class="iradio_square-green" style="position: relative;">
+                                <input type="radio" name="radio7372" id="radio7372_0" class="icheck-radio" value="A" style="position: absolute; opacity: 0;" disabled="disabled"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                              </div>
+                              <label for="radio7372_0">A. 奶粉中蛋白质、脂肪含量严重不足</label>
+                              <!---->
+                            </div>
+                            <div class="field">
+                              <div class="iradio_square-green checked" style="position: relative;">
+                                <input type="radio" name="radio7372" id="radio7372_1" class="icheck-radio" value="B" style="position: absolute; opacity: 0;" disabled="disabled"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                              </div>
+                              <label for="radio7372_1" class="">B. 奶粉中微量元素钙、铁、锌等含量极低</label>
+                              <!---->
+                            </div>
+                            <div class="field">
+                              <div class="iradio_square-green" style="position: relative;">
+                                <input type="radio" name="radio7372" id="radio7372_2" class="icheck-radio" value="C" style="position: absolute; opacity: 0;" disabled="disabled"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                              </div>
+                              <label for="radio7372_2" class="">C. 产品标示的使用方法不正确</label>
+                              <!---->
+                            </div>
+                            <div class="field">
+                              <div class="iradio_square-green" style="position: relative;">
+                                <input type="radio" name="radio7372" id="radio7372_3" class="icheck-radio" value="D" style="position: absolute; opacity: 0;" disabled="disabled"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                              </div>
+                              <label for="radio7372_3" class="">D. 以上说法都正确
+                              </label>
+                              <!---->
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="question_3" class="ui segment question hidden error" style="display: block !important;">
+                  <div id="question-3" class="card card-scss">
+                    <div class="card-content">
+                      <p>3. 下列哪种食物含钙最丰富（）</p>
+                    </div>
+                    <div class="card-action card-action-scss">
+                      <div class="skin skin-square">
+                        <div class="skin-section">
+                          <form action="#" data-question-id="7373" data-sort-number="3">
+                            <div class="field">
+                              <div class="iradio_square-green checked" style="position: relative;">
+                                <input type="radio" name="radio7373" id="radio7373_0" class="icheck-radio" value="A" style="position: absolute; opacity: 0;" disabled="disabled"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                              </div>
+                              <label for="radio7373_0" class="">A. 米饭</label>
+                              <!---->
+                            </div>
+                            <div class="field right">
+                              <div class="iradio_square-green" style="position: relative;">
+                                <input type="radio" name="radio7373" id="radio7373_1" class="icheck-radio" value="B" style="position: absolute; opacity: 0;" disabled="disabled"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                              </div>
+                              <label for="radio7373_1" class="">B. 牛奶</label>
+                              <!---->
+                            </div>
+                            <div class="field">
+                              <div class="iradio_square-green" style="position: relative;">
+                                <input type="radio" name="radio7373" id="radio7373_2" class="icheck-radio" value="C" style="position: absolute; opacity: 0;" disabled="disabled"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                              </div>
+                              <label for="radio7373_2" class="">C. 青菜</label>
+                              <!---->
+                            </div>
+                            <div class="field">
+                              <div class="iradio_square-green" style="position: relative;">
+                                <input type="radio" name="radio7373" id="radio7373_3" class="icheck-radio" value="D" style="position: absolute; opacity: 0;" disabled="disabled"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                              </div>
+                              <label for="radio7373_3" class="">D. 苹果</label>
+                              <!---->
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="small-chat">
+        <a class="open-small-chat">
+          <div id="count_down" class="ui">
+            <div class="time-item"><strong class="minute_show">00分</strong> <strong class="second_show">00秒</strong>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer" class="ui inverted vertical footer segment">
+    <div class="ui center aligned container">
+      <div id="footer-content" class="ui horizontal inverted small divided link list">
+      </div>
+    </div>
+  </div>
+</div>
