@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109090416) do
+ActiveRecord::Schema.define(version: 20171110073212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,30 @@ ActiveRecord::Schema.define(version: 20171109090416) do
     t.string "name"
     t.index ["cell"], name: "users_cell_password_index"
     t.index ["type"], name: "index_users_on_type"
+  end
+
+  create_table "workbook_drill_items", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "question_id"
+    t.text "selected"
+    t.boolean "correct"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_workbook_drill_items_on_question_id"
+    t.index ["user_id"], name: "index_workbook_drill_items_on_user_id"
+  end
+
+  create_table "workbook_drills", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "workbook_id"
+    t.bigint "lesson_id"
+    t.integer "score"
+    t.integer "seconds"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_workbook_drills_on_lesson_id"
+    t.index ["user_id"], name: "index_workbook_drills_on_user_id"
+    t.index ["workbook_id"], name: "index_workbook_drills_on_workbook_id"
   end
 
   create_table "workbooks", force: :cascade do |t|

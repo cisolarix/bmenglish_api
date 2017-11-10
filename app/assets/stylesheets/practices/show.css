@@ -195,39 +195,39 @@ body {
   display: none;
 }
 
-#exam_wrapper #Top50 {
+#exam_wrapper #scoreboard {
   width: 250px;
   padding: 0;
 }
 
-#exam_wrapper #Top50 .ui.segment.btn-num a {
+#exam_wrapper #scoreboard .ui.segment.btn-num a {
   width: 33px;
   padding: 5px;
   font-size: 14px;
   margin: 3px 5px;
 }
 
-#exam_wrapper #Top50 .ui.segment.btn-num a.active {
+#exam_wrapper #scoreboard .ui.segment.btn-num a.active {
   background-color: #1ABC9C;
   color: #fff;
   border: 1px solid #1ABC9C;
 }
 
-#exam_wrapper #Top50 .ui.segment.btn-num a:hover {
+#exam_wrapper #scoreboard .ui.segment.btn-num a:hover {
   color: #FF8100;
 }
 
-#exam_wrapper #Top50 .state {
+#exam_wrapper #scoreboard .state {
   width: 24px;
   height: 24px;
   margin: 0px 6px 4px 8px;
 }
 
-#exam_wrapper #Top50 .state.bg2 {
+#exam_wrapper #scoreboard .state.bg2 {
   background-color: #1ABC9C;
 }
 
-#exam_wrapper #Top50 #count_down {
+#exam_wrapper #scoreboard #count_down {
   background-color: #1ABC9C;
   color: #fff;
   font-size: 20px;
@@ -329,10 +329,10 @@ body {
 }
 
 @media screen and (max-width: 1200px) and (min-width: 992px) {
-  #exam_wrapper #Top50 {
+  #exam_wrapper #scoreboard {
     width: 230px;
   }
-  #exam_wrapper #Top50.fixed .ui.segment.btn-num a {
+  #exam_wrapper #scoreboard.fixed .ui.segment.btn-num a {
     width: 30px;
     padding: 5px;
     font-size: 14px;
@@ -341,10 +341,10 @@ body {
 }
 
 @media screen and (max-width: 992px) and (min-width: 767px) {
-  #exam_wrapper #Top50 {
+  #exam_wrapper #scoreboard {
     width: 196px !important;
   }
-  #exam_wrapper #Top50.fixed .ui.segment.btn-num a {
+  #exam_wrapper #scoreboard.fixed .ui.segment.btn-num a {
     width: 30px;
     padding: 5px;
     font-size: 14px;

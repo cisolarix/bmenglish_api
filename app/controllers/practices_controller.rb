@@ -11,6 +11,7 @@ class PracticesController < BaseController
   end
 
   def load_questions
-    @questons = @lesson.questions
+    # @questions = @lesson.questions
+    @questions = Question.includes(:options).first(10)
   end
 end
