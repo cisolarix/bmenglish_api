@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171110073212) do
+ActiveRecord::Schema.define(version: 20171122112553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,29 @@ ActiveRecord::Schema.define(version: 20171110073212) do
     t.boolean "correct", default: false
     t.index ["deleted_at"], name: "index_options_on_deleted_at"
     t.index ["question_id"], name: "index_options_on_question_id"
+  end
+
+  create_table "practice_questions", force: :cascade do |t|
+    t.bigint "result_id"
+    t.bigint "question_id"
+    t.text "choices"
+    t.boolean "correct", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_practice_questions_on_question_id"
+    t.index ["result_id"], name: "index_practice_questions_on_result_id"
+  end
+
+  create_table "practice_results", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "workbook_id"
+    t.bigint "lesson_id"
+    t.integer "score", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_id"], name: "index_practice_results_on_lesson_id"
+    t.index ["user_id"], name: "index_practice_results_on_user_id"
+    t.index ["workbook_id"], name: "index_practice_results_on_workbook_id"
   end
 
   create_table "profiles", force: :cascade do |t|

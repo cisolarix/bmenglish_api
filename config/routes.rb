@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'add_to_my_workbook', to: 'workbooks#create'
   resources :workbooks, only: [:show] do
     get '/lessons/:lesson_id/practise', to: 'practices#show', as: :practise
+    post '/lessons/:lesson_id/submit_practice', to: 'practices#create', as: :submit_practise
     # /workbooks/111/lessons/222/practise
   end
 

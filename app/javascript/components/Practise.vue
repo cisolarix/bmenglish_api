@@ -24,6 +24,7 @@
           <Scoreboard></Scoreboard>
           <div id="padding0" class="four wide column"></div>
           <Questions></Questions>
+          <Result></Result>
         </div>
       </div>
     </section>
@@ -34,11 +35,13 @@
 <script>
 import Questions from './practise/Questions.vue'
 import Scoreboard from './practise/Scoreboard.vue'
+import Result from './practise/Result.vue'
 
 export default {
   components: {
     Questions,
-    Scoreboard
+    Scoreboard,
+    Result
   },
   created() {
     this.$store.dispatch('fetchList')

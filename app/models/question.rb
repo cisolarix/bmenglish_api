@@ -10,4 +10,8 @@ class Question < ApplicationRecord
   def correct_answers
     @correct_answers ||= options.where(correct: true)
   end
+
+  def correct_answers_ids
+    correct_answers.ids
+  end
 end
