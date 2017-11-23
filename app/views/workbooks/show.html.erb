@@ -11,10 +11,4 @@
 
 <div class="ui text container">
   <%= render 'item', collection: @textbook %>
-  <% if @workbook %>
-    <a class="ui disabled button">已加入我的练习册</a>
-    <a class="ui primary button" href="<%= workbook_path(@workbook) %>">前往练习</a>
-  <% else %>
-    <%= link_to '加入我的练习册', add_to_my_workbook_path(textbook_id: params[:id]), remote: true, method: :post, class: 'ui primary button' %>
-  <% end %>
 </div>

@@ -1,0 +1,19 @@
+<ul>
+<% collection.each do |item, children| %>
+  <div>
+    <li>
+      <% if children.blank? %>
+        <a href="/workbooks/<%= params[:id] %>/lessons/<%= item.id %>/practise"><%= item[:title] %></a>
+      <% else %>
+        <%= item[:title] %>
+      <% end %>
+    </li>
+  </div>
+
+  <% if children.present? %>
+    <div>
+      <%= render 'item', collection: children %>
+    </div>
+  <% end %>
+<% end %>
+</ul>

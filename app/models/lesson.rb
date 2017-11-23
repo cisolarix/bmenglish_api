@@ -1,0 +1,2 @@
+class Lesson < Chapter
+end

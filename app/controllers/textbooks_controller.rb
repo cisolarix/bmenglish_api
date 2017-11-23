@@ -5,6 +5,7 @@ class TextbooksController < BaseController
 
   def show
     load_book
+    load_workbook
   end
 
   private
@@ -14,6 +15,10 @@ class TextbooksController < BaseController
   end
 
   def load_book
-    @book = Chapter.find(params[:id]).subtree.arrange
+    @textbook = Chapter.find(params[:id]).subtree.arrange
+  end
+
+  def load_workbook
+    @workbook = Workbook.find_by(user_id: current_user.id, textbook_id: params[:id])
   end
 end

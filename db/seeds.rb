@@ -3,6 +3,7 @@ DatabaseCleaner.clean
 
 u = User.find_or_initialize_by(cell: '15270853389')
 u.password = '000'
+u.name = '雁鸣'
 u.save
 
 100.times do
