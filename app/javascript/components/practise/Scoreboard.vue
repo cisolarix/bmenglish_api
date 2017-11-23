@@ -2,8 +2,7 @@
   <div id="scoreboard" class="wide column overlay fixed">
     <div class="num hidden-xs">
       <div id="count_down" class="ui segment">
-        <div class="time-item"><strong class="minute_show">00分</strong> <strong class="second_show">00秒</strong>
-        </div>
+        <div class="time-item"><strong>题目</strong></div>
       </div>
       <div>
         <div class="ui segment btn-num">
@@ -16,7 +15,7 @@
     <div class="row">
       <div class="four wide column"></div>
       <div class="twelve wide column">
-        <button type="button" name="action" id="submit" class="ui button mobile-submit" :class="[finished.length == questionsLength ? '' : 'disabled']">
+        <button type="button" name="action" id="submit" class="ui button mobile-submit" :class="[finished.length == questionsLength ? '' : 'disabled']" @click="onClick">
           交卷
         </button>
       </div>
@@ -30,6 +29,12 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     ...mapState(['questions', 'finished', 'questionsLength'])
+  },
+  methods: {
+    onClick() {
+      console.log("交卷")
+      this.$store.dispatch('submitPractice')
+    }
   }
 }
 </script>
