@@ -4,12 +4,10 @@ class PracticesController < BaseController
   def show
     load_lesson
     load_questions
+    gon.params = params
   end
 
   def create
-    # puts '*' * 100
-    # puts params.inspect
-    # puts '*' * 100
     build_practice
     @practice.save
   end

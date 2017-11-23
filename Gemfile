@@ -72,3 +72,6 @@ gem 'database_cleaner', '~> 1.6', '>= 1.6.2'
 
 # 树形图
 gem 'ancestry', '~> 3.0', '>= 3.0.1'
+
+# Rails variables in JS
+gem 'gon', '~> 6.2'

@@ -61,6 +61,10 @@ export default new Vuex.Store({
     },
     reload(state, payload) {
       window.location.reload(true);
+    },
+    showAnswer(state, payload) {
+      let url = `http://localhost:3000/workbooks/${gon.params.workbook_id}/lessons/${gon.params.lesson_id}/practices/${state.result.id}/answers`
+      window.location.replace(url)
     }
     // selectQuestion(state, payload) {
     //   state.currentQuestion = payload.currentQuestion

@@ -33,7 +33,7 @@ class Practice < ActiveType::Object
         (correct / total.to_f * 100).ceil
       end
 
-    Practices::Result.create(
+    practice_result = Practices::Result.create(
       user: user,
       workbook_id: workbook_id,
       lesson_id: lesson_id,
@@ -42,6 +42,7 @@ class Practice < ActiveType::Object
     )
 
     self.result = {
+      id: practice_result.id,
       score: score,
       total: choices.count,
       correct: results.select { |r| r[:correct] }.count

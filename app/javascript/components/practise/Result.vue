@@ -32,7 +32,7 @@ export default {
       this.$store.commit('reload')
     },
     showAnswer() {
-
+      this.$store.commit('showAnswer')
     }
   }
 }

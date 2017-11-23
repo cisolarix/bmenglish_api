@@ -2,7 +2,7 @@
   <div class='container'>
       <div class="ui fixed inverted menu" style="background: rgb(26, 188, 156); height: 52px;">
         <div class="ui container">
-          <a href="/" class="header item router-link-active" style="border: none;"><span class="logo-name" style="padding-left: 5px;">课本名字</span>
+          <a href="#" class="header item router-link-active" style="border: none;"><span class="logo-name" style="padding-left: 5px;">课本名字</span>
           </a>
           <div class="right header item">
             <div class="ui hidden divider"></div>
