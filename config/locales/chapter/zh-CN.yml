@@ -1,0 +1,8 @@
+zh-CN:
+  activerecord:
+    errors:
+      models:
+        chapter:
+          attributes:
+            title:
+              taken: '标题重复了'

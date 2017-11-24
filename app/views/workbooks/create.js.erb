@@ -1,5 +1,5 @@
 <% if @workbook.errors.empty? %>
-  Turbolinks.visit("<%= textbook_path(id: params[:textbook_id]) %>")
+  window.location.reload(true)
 <% else %>
-  console.log('加入我的练习册错误')
+  alert('加入我的练习册错误')
 <% end %>

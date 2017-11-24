@@ -3,6 +3,7 @@ class QuestionsController < BaseController
 
   def index
     load_questions
+    authorize @questions
     load_chapters
   end
 
@@ -29,7 +30,6 @@ class QuestionsController < BaseController
   private
 
   def load_questions
-    # TODO: policy
     @q = Question.includes(:options).ransack params[:q]
     @q.sorts = 'id desc' if @q.sorts.empty?
     results = @q.result(distinct: true)
@@ -39,7 +39,7 @@ class QuestionsController < BaseController
   end
 
   def load_chapters
-    @chapters = 
+    @chapters =
       begin
         cs = Chapter.all.select { |c| !c.has_children? }
         cs.each_with_object([]) do |c, acc|

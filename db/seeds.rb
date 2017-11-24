@@ -1,10 +1,16 @@
 DatabaseCleaner.strategy = :truncation
 DatabaseCleaner.clean
 
-u = User.find_or_initialize_by(cell: '15270853389')
-u.password = '000'
+u = Student.find_or_initialize_by(cell: '15270853389')
 u.name = '雁鸣'
+u.password = 'yuyouleon'
 u.save
+
+t = Teacher.find_or_initialize_by(cell: '18970013155')
+t.name = '吴老师'
+t.password = 'yuyouleon'
+t.super = true
+t.save
 
 100.times do
   q = Question.create(

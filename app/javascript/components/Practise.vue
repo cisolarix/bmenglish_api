@@ -8,9 +8,9 @@
           <div class="right header item">
             <div class="ui hidden divider"></div>
             <div id="userinfo_dropdown" class="ui floating dropdown button" tabindex="0"><i class="user icon"></i>
-              <div id="studentname" style="display: inline;">{{ current_user.name }}</div> <i class="dropdown icon" tabindex="0"><div class="menu" tabindex="-1"></div></i>
+              <div id="studentname" style="display: inline;" @click="click">{{ current_user.name }}</div> <i class="dropdown icon" tabindex="0"><div class="menu" tabindex="-1"></div></i>
               <div class="menu" tabindex="-1">
-                <a href="javascript:;" class="item"><i class="sign out icon"></i> 注销</a>
+                <a href="/sign_out" class="item"><i class="sign out icon"></i> 注销</a>
               </div>
             </div>
           </div>
@@ -51,6 +51,12 @@ export default {
     this.lesson_title = gon.lesson_title
     this.current_user = gon.current_user
     this.workbook_id = gon.workbook_id
+  },
+  methods: {
+    click() {
+      console.log('点击')
+      $('.dropdown').dropdown()
+    }
   }
 }
 </script>

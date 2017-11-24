@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     build_sign_in
     if @sign_in.save
       login_as @sign_in.logged_user
-      redirect_to root_path
+      redirect_to @sign_in.logged_user.is_a?(Student) ? workbooks_path : questions_path
     else
       flash[:info] = @sign_in.errors.full_messages.first
       redirect_back fallback_location: { action: sign_in_path }

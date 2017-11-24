@@ -5,7 +5,7 @@
     </el-form-item>
 
     <el-form-item label="所属章节">
-      <el-select v-model="currentQuestion.chapter_ids" multiple placeholder="请选择">
+      <el-select v-model="currentQuestion.chapter_ids" multiple filterable placeholder="请选择">
         <el-option
           v-for="item in chapters"
           :key="item.id"

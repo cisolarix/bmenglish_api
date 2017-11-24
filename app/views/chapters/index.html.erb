@@ -1,7 +1,13 @@
+<style>
+  #textbook-btn {
+    background-color: #1ABC9C;
+  }
+</style>
+
 <div class='container'>
   <div class="ui fixed inverted menu" style="background: rgb(26, 188, 156); height: 52px;">
     <div class="ui container">
-      <a href="/workbooks" class="header item router-link-active" style="border: none;"><span class="logo-name" style="padding-left: 5px;">我的练习册</span>
+      <a href="#" class="header item router-link-active" style="border: none;"><span class="logo-name" style="padding-left: 5px;">所有教材</span>
       </a>
       <div class="right header item">
         <div class="ui hidden divider"></div>
@@ -19,14 +25,17 @@
     <div id="exam_wrapper" class="ui stackable two column vertically divided grid container">
       <div class="row">
         <div class="twelve wide column exam-content">
-          <div class="ui text container">
-            <%= render 'item', collection: @textbook %>
+
+          <div class="ui segment question transition visible" style="display: block !important;">
+            <%= render 'item', collection: @chapters %>
           </div>
         </div>
       </div>
+      <a href="/chapters/new" class='ui primary button' id='textbook-btn'>新建章节</a>
     </div>
   </section>
 </div>
+
 
 <script>
   $(() => {

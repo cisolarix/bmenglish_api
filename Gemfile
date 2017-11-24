@@ -9,7 +9,8 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
+# gem 'pg', '~> 0.18'
+gem 'mysql2', '~> 0.4.10'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -75,3 +76,6 @@ gem 'ancestry', '~> 3.0', '>= 3.0.1'
 
 # Rails variables in JS
 gem 'gon', '~> 6.2'
+
+# Object oriented authorization for Rails applications
+gem 'pundit', '~> 1.1'

@@ -1,0 +1,5 @@
+<% if @chapter.errors.empty? %>
+  window.location.replace('/chapters')
+<% else %>
+  alert('编辑章节错误: <%= @chapter.errors.full_messages.join('\n') %>')
+<% end %>

@@ -1,0 +1,37 @@
+<div class='container'>
+<%= form_for @chapter, remote: true, class: 'ui form' do |f| %>
+  <div class="field">
+    <label>章节标题</label>
+    <div class="two fields">
+      <div class="field">
+        <%= f.text_field :title, placeholder: '标题' %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="field">
+    <label>父节点</label>
+    <div class="ui fluid search selection dropdown">
+      <%= f.hidden_field :parent_id  %>
+      <i class="dropdown icon"></i>
+      <div class="default text">选择父节点</div>
+      <div class="menu">
+        <% @all_chapters.each do |chapter| %>
+          <div class="item" data-value="<%= chapter.id %>"><%= chapter.title %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class=" button field" tabindex="0">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+
+
+<script>
+  $(() => {
+    $('.dropdown').dropdown()
+  })
+</script>
