@@ -2,6 +2,7 @@
   <div class='container'>
       <div class="ui fixed inverted menu" style="background: rgb(26, 188, 156); height: 52px;">
         <div class="ui container">
+          <a :href="`/workbooks/${workbook_id}`" class="header item router-link-active" style="border: none;"><span class="logo-name" style="padding-left: 5px;">回到练习册</span></a>
           <a href="#" class="header item router-link-active" style="border: none;"><span class="logo-name" style="padding-left: 5px;">{{ workbook_title }}</span>
           </a>
           <div class="right header item">
@@ -37,7 +38,7 @@ import Result from './practise/Result.vue'
 
 export default {
   data() {
-    return { workbook_title: '', current_user: null }
+    return { workbook_id: '', workbook_title: '', current_user: null }
   },
   components: {
     Questions,
@@ -49,6 +50,7 @@ export default {
     this.workbook_title = gon.workbook_title
     this.lesson_title = gon.lesson_title
     this.current_user = gon.current_user
+    this.workbook_id = gon.workbook_id
   }
 }
 </script>

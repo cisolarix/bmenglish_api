@@ -20,10 +20,30 @@
   }
 </style>
 
+<style type="text/css" media="print">
+  @page {
+    size:  auto;   /* auto is the initial value */
+    margin: 0mm;  /* this affects the margin in the printer settings */
+  }
+
+  html {
+    background-color: #FFFFFF;
+    margin: 0px;  /* this affects the margin on the html before sending to printer */
+  }
+
+  body {
+    margin: 10mm 15mm 10mm 15mm; /* margin you want for the content */
+  }
+
+  #back-to-workbook {
+    visibility: hidden;
+  }
+</style>
+
 <div class='container'>
   <div class="ui fixed inverted menu" style="background: rgb(26, 188, 156); height: 52px;">
     <div class="ui container">
-      <a href="/workbooks/<%= params[:workbook_id] %>" class="header item router-link-active" style="border: none;"><span class="logo-name" style="padding-left: 5px;">回到练习册</span>
+      <a href="/workbooks/<%= params[:workbook_id] %>" id="back-to-workbook" class="header item router-link-active" style="border: none;"><span class="logo-name" style="padding-left: 5px;">回到练习册</span>
       <a href="#" class="header item router-link-active" style="border: none;"><span class="logo-name" style="padding-left: 5px;"><%= @workbook.textbook.title %></span>
       </a>
       <div class="right header item">

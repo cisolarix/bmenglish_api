@@ -18,6 +18,7 @@ class PracticesController < BaseController
   def load_workbook
     @workbook = Workbook.find params[:workbook_id]
     gon.workbook_title = @workbook.textbook.title
+    gon.workbook_id = params[:workbook_id]
   end
 
   def load_lesson
