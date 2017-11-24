@@ -69,6 +69,10 @@
               </div>
             <% end %>
           </div>
+
+          <div class="ui segment">
+            <p>练习日期：<%= @result.created_at.localtime.strftime("%Y-%m-%d %H:%M:%S") %>，正确率：<%= @result.score %>%</p>
+          </div>
         </div>
       </div>
     </div>

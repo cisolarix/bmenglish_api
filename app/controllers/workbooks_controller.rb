@@ -1,4 +1,8 @@
 class WorkbooksController < BaseController
+  def index
+    load_workbooks
+  end
+
   def create
     build_workbook
     @workbook.save
@@ -10,6 +14,10 @@ class WorkbooksController < BaseController
   end
 
   private
+
+  def load_workbooks
+    @workbooks = current_user.workbooks
+  end
 
   def build_workbook
     @workbook = Workbook.find_or_initialize_by workbook_params
