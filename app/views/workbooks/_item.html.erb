@@ -3,7 +3,7 @@
   <div>
     <li>
       <% if children.blank? %>
-        <a href="/workbooks/<%= params[:id] %>/lessons/<%= item.id %>/practise"><%= item[:title] %></a>
+        <a href="/workbooks/<%= params[:id] %>/lessons/<%= item.id %>/practice"><%= item[:title] %></a>
       <% else %>
         <%= item[:title] %>
       <% end %>

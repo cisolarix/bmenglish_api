@@ -63,7 +63,7 @@ export default new Vuex.Store({
       window.location.reload(true);
     },
     showAnswer(state, payload) {
-      let url = `http://localhost:3000/workbooks/${gon.params.workbook_id}/lessons/${gon.params.lesson_id}/practices/${state.result.id}/answers`
+      let url = `http://localhost:3000/workbooks/${gon.params.workbook_id}/lessons/${gon.params.id}/practices/${state.result.id}/answers`
       window.location.replace(url)
     }
     // selectQuestion(state, payload) {
@@ -85,7 +85,7 @@ export default new Vuex.Store({
     //      .catch(error => { console.log(error) })
     // },
     fetchList(context, payload) {
-      api.fetchList()
+      api.fetchList(gon.params.workbook_id, gon.params.id)
         .then(response => {
           context.commit('fetchedList', response.data)
         })
@@ -98,7 +98,7 @@ export default new Vuex.Store({
           questionId: c.questionId
         }
       })
-      api.submitPractice(choices)
+      api.submitPractice(choices, gon.params.workbook_id, gon.params.id)
         .then(response => {
           context.commit('submitedPractice', response.data)
         })

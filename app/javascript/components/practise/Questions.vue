@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="twelve wide column exam-content">
-    <div class="ui segment"><span id="exam_title">单元名称 -- 第几课</span></div>
+    <div class="ui segment"><span id="exam_title">{{ lesson_title }}</span></div>
 
     <div :id="`question_${questionIndex+1}`" class="ui segment question transition visible" style="display: block !important;" v-for="(question, questionIndex) in questions">
       <div id="question-1" class="card card-scss">
@@ -28,6 +28,9 @@
 import { mapState } from 'vuex'
 
 export default {
+  data() {
+    return { lesson_title: '' }
+  },
   computed: {
     ...mapState(['questions', 'optionPrefixes', 'choices'])
   },
@@ -40,10 +43,8 @@ export default {
       }
     }
   },
-  watch: {
-    choices() {
-      console.log(this.choices)
-    }
+  created() {
+    this.lesson_title = gon.lesson_title
   }
 }
 </script>
