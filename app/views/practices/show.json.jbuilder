@@ -3,7 +3,7 @@ json.questions do
     json.id question.id
     json.title question.title
     json.options do
-      json.array! question.options do |option|
+      json.array! question.options.shuffle do |option|
         json.id option.id
         json.content option.content
       end
