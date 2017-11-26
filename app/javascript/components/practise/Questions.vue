@@ -5,7 +5,8 @@
     <div :id="`question_${questionIndex+1}`" class="ui segment question transition visible" style="display: block !important;" v-for="(question, questionIndex) in questions">
       <div id="question-1" class="card card-scss">
         <div class="card-content">
-          <p>{{ questionIndex + 1 }}：{{ question.title }}</p>
+          <p style="position: absolute; left: 20px; top: 20px; margin: 0;">{{ questionIndex+1 }}</p>
+          <p style="margin-left: 30px; margin-top: 6px;" v-html="`${question.title}`"></p>
         </div>
         <div class="card-action card-action-scss">
           <div class="skin skin-square">
