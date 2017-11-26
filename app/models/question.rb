@@ -1,6 +1,5 @@
 class Question < ApplicationRecord
   acts_as_paranoid
-  acts_as_taggable
 
   has_many :options, dependent: :destroy
   has_and_belongs_to_many :chapters
