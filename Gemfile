@@ -62,7 +62,7 @@ gem 'paranoia', '~> 2.3', '>= 2.3.1'
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
-gem 'webpacker', '~> 3.0', '>= 3.0.2'
+gem 'webpacker', github: 'rails/webpacker'
 
 # Strategies for cleaning databases. Can be used to ensure a clean state for testing.
 gem 'database_cleaner', '~> 1.6', '>= 1.6.2'
