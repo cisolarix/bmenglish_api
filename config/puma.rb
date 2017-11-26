@@ -28,7 +28,7 @@ stdout_redirect File.join(log_path, 'puma.out.log'), File.join(log_path, 'puma.e
 bind "tcp://0.0.0.0:9292"
 
 preload_app! #utilizing copy-on-write
-activate_control_app 'unix:///home/deployer/www/admin/shared/tmp/sockets/pumactl.sock'
+activate_control_app 'unix:///home/deployer/www/bmenglish/shared/tmp/sockets/pumactl.sock'
 
 on_worker_boot do
   # Worker specific setup for Rails 4.1+
