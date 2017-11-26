@@ -1,5 +1,5 @@
-$(() => {
-  $(document).on('turbolinks:load', e => {
+$(function() {
+  $(document).on('turbolinks:load', function(e) {
     $('.ui.dropdown').dropdown()
   })
 })
