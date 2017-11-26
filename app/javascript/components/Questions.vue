@@ -29,9 +29,11 @@
             min-width='10%'>
           </el-table-column>
           <el-table-column
-            prop="title"
             label="题目"
             min-width='90%'>
+            <template slot-scope="scope">
+              <span v-html="scope.row.title"></span>
+            </template>
           </el-table-column>
 
           <el-table-column
