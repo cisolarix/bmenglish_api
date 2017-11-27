@@ -1,8 +1,6 @@
 require 'mina/rails'
 require 'mina/git'
 require 'mina/bundler'
-require 'mina/rails'
-require 'mina/git'
 require 'mina/puma'
 require 'mina/rbenv'
 
@@ -45,7 +43,7 @@ task :deploy do
     invoke :'deploy:cleanup'
 
     on :launch do
-      invoke :'puma:start'
+      invoke :'puma:restart'
     end
   end
 end
