@@ -1,13 +1,14 @@
-<ul>
-<% collection.each do |item, children| %>
-  <div>
-    <li><%= item[:title] %></li>
-  </div>
+<ul class="nav">
+  <% collection.each do |item, children| %>
+    <li class="nav-item">
+      <%= item[:title] %>
+      <% if children.blank? && workbook.present?  %>
+        <a href="/workbooks/<%= params[:id] %>/lessons/<%= item.id %>/practice" class="click-to-practice">前往练习</a>
+      <% end %>
+    </li>
 
-  <% if children.present? %>
-    <div>
-      <%= render 'item', collection: children %>
-    </div>
+    <% if children.present? %>
+      <%= render partial: 'item', locals: { collection: children, workbook: workbook } %>
+    <% end %>
   <% end %>
-<% end %>
 </ul>
