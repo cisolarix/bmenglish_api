@@ -1,19 +1,26 @@
 <div class="textbooks-list">
   <%= render partial: 'common/header', locals: { title: '所有教材', user: current_user } %>
-</div>
 
-<div class="container">
-  <div class="columns col-gapless">
-    <div class="column col-2"></div>
-    <div class="column col-8">
-      <table class="table table-striped table-hover">
-        <% @books.each_with_index do |book, index| %>
-          <tr class="<%= index.even? ? 'active': "" %>">
-            <td><%= link_to book.title, textbook_path(book) %></td>
-          </tr>
-        <% end %>
-      </table>
+  <div class="container">
+    <div class="columns col-gapless">
+      <div class="column col-2"></div>
+      <div class="column col-8">
+        <div class="panel">
+          <div class="panel-header"></div>
+          <div class="panel-body">
+            <table class="table table-striped table-hover">
+              <% @books.each_with_index do |book, index| %>
+              <tr>
+                <td><%= link_to book.title, textbook_path(book) %></td>
+              </tr>
+              <% end %>
+            </table>
+          </div>
+          <div class="panel-footer">
+          </div>
+        </div>
+      </div>
+      <div class="column col-2"></div>
     </div>
-    <div class="column col-2"></div>
   </div>
 </div>
