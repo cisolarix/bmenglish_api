@@ -1,0 +1,8 @@
+.workbooks-list {
+  margin-top: 5vh;
+
+  // TODO: 官方升级后，需移除此 hack
+  .navbar .navbar-section:last-child {
+    justify-content: flex-start;
+  }
+}

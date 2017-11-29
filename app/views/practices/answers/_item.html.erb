@@ -1,0 +1,20 @@
+<% collection.each_with_index do |q, i| %>
+  <% question = q.question %>
+
+  <div class="tile">
+    <div class="tile-icon"><%= i + 1 %>：</div>
+    <div class="tile-content">
+      <p class="tile-title">
+        <%= question.title %>&nbsp; <%= q.correct? ? '✔' : '╳' %>
+      </p>
+      <% question.options.each_with_index do |option, index| %>
+      <p class="tile-subtitle <%= (option.id.in?(q.choices) && !q.correct?) ? "answer-error" : '' %>">
+        <label>
+          <input type="checkbox" disabled <%= option.correct? ? "checked" : "" %>>
+          <span class='option-title'><%= option.content %></span>
+        </label>
+      </p>
+      <% end %>
+    </div>
+  </div>
+<% end %>

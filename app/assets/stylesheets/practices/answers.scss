@@ -1,0 +1,66 @@
+#answers {
+  margin-top: .5em;
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(248, 249, 250, .75);
+    padding: .5em;
+  }
+
+  .questions-list {
+    margin-top: 5em;
+
+    .panel-header {
+      margin-bottom: 2em;
+    }
+
+    .panel-body {
+      .tile {
+        page-break-inside: avoid;
+        .tile-content {
+          padding-top: .2em;
+
+          .tile-subtitle {
+            .option-title {
+              margin-left: .5em;
+            }
+          }
+        }
+      }
+    }
+
+    .answer-error {
+      border: 1px dashed red;
+      padding: 3px;
+    }
+  }
+}
+
+
+@media print {
+  @page {
+    size:  auto;   /* auto is the initial value */
+    margin: 0mm;  /* this affects the margin in the printer settings */
+  }
+
+  html {
+    background-color: #FFFFFF;
+    margin: 0px;  /* this affects the margin on the html before sending to printer */
+  }
+
+  body {
+    margin: 20mm 25mm 20mm 25mm; /* margin you want for the content */
+  }
+
+  #back-to-workbook {
+    visibility: hidden;
+  }
+
+  #answers .header {
+    position: relative;
+    margin-bottom: 0;
+  }
+}

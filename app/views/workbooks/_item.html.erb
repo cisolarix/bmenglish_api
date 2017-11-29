@@ -1,19 +1,19 @@
-<ul>
-<% collection.each do |item, children| %>
-  <div>
-    <li>
-      <% if children.blank? %>
-        <a href="/workbooks/<%= params[:id] %>/lessons/<%= item.id %>/practice"><%= item[:title] %></a>
-      <% else %>
-        <%= item[:title] %>
-      <% end %>
-    </li>
-  </div>
-
-  <% if children.present? %>
+<ul class='nav'>
+  <% collection.each do |item, children| %>
     <div>
-      <%= render 'item', collection: children %>
+      <li class='nav-item'>
+        <% if children.blank? %>
+          <a href="/workbooks/<%= params[:id] %>/lessons/<%= item.id %>/practice"><%= item[:title] %></a>
+        <% else %>
+          <%= item[:title] %>
+        <% end %>
+      </li>
     </div>
+
+    <% if children.present? %>
+      <div>
+        <%= render 'item', collection: children %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
 </ul>
