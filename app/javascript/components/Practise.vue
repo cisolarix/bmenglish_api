@@ -1,34 +1,41 @@
 <template lang="html">
-  <div class='container'>
-      <div class="ui fixed inverted menu" style="background: rgb(26, 188, 156); height: 52px;">
-        <div class="ui container">
-          <a :href="`/workbooks/${workbook_id}`" class="header item router-link-active" style="border: none;"><span class="logo-name" style="padding-left: 5px;">回到练习册</span></a>
-          <a href="#" class="header item router-link-active" style="border: none;"><span class="logo-name" style="padding-left: 5px;">{{ workbook_title }}</span>
-          </a>
-          <div class="right header item">
-            <div class="ui hidden divider"></div>
-            <div id="userinfo_dropdown" class="ui floating dropdown button" tabindex="0"><i class="user icon"></i>
-              <div id="studentname" style="display: inline;" @click="click">{{ current_user.name }}</div> <i class="dropdown icon" tabindex="0"><div class="menu" tabindex="-1"></div></i>
-              <div class="menu" tabindex="-1">
-                <a href="/sign_out" class="item"><i class="sign out icon"></i> 注销</a>
-              </div>
-            </div>
+  <div class="practice">
+    <div class="header">
+      <header class="navbar">
+        <section class="navbar-section">
+          <a :href="`/workbooks/${workbook_id}`" class="navbar-brand mr-2">回到练习册</a>
+        </section>
+        <section class="navbar-center">
+          <span>{{ workbook_title }}</span>
+        </section>
+        <section class="navbar-section text-right">
+          <div class="dropdown dropdown-right">
+            <button class="btn btn-link dropdown-toggle" tabindex="0">
+              {{ current_user.name }} <i class="icon icon-caret"></i>
+            </button>
+            <ul class="menu">
+              <li class="menu-item">
+                <a href="/sign_out">注销</a>
+              </li>
+            </ul>
           </div>
-        </div>
-      </div>
+        </section>
+      </header>
+    </div>
 
-    <section class="app-main" style="min-height: 100%;">
-      <div id="exam_wrapper" class="ui stackable two column vertically divided grid container">
-        <div class="row">
-          <Scoreboard></Scoreboard>
-          <div id="padding0" class="four wide column"></div>
+    <div class="container">
+      <div class="columns">
+        <div class="column col-10">
           <Questions></Questions>
-          <Result></Result>
+        </div>
+        <div class="column col-2">
+          <Scoreboard></Scoreboard>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
 
+    <Result></Result>
+  </div>
 </template>
 
 <script>
@@ -51,12 +58,6 @@ export default {
     this.lesson_title = gon.lesson_title
     this.current_user = gon.current_user
     this.workbook_id = gon.workbook_id
-  },
-  methods: {
-    click() {
-      console.log('点击')
-      $('.dropdown').dropdown()
-    }
   }
 }
 </script>

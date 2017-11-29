@@ -1,25 +1,16 @@
 <template lang="html">
-  <div id="scoreboard" class="wide column overlay fixed">
-    <div class="num hidden-xs">
-      <div id="count_down" class="ui segment">
-        <div class="time-item"><strong>题目</strong></div>
-      </div>
+  <div id="scoreboard" class="fixed">
+    <div>
+      <strong>答题板</strong>
       <div>
-        <div class="ui segment btn-num">
-          <a v-for="(question, index) in questions" :href="`#question_${index+1}`" class="btn btn-white" :class="[finished.includes(index) ? 'active' : '']">{{ index + 1 }}</a>
-        </div>
-        <a href="javascript:;" class="btn btn-white state bg1"></a><span>未答题</span>
-        <a href="javascript:;" class="btn btn-white state bg2"></a><span>已答题</span>
+        <span class="chip" :class="[finished.includes(index) ? 'answered' : '']" v-for="(question, index) in questions">
+          <a :href="`#question_${index+1}`">{{ index + 1 }}</a>
+        </span>
       </div>
     </div>
-    <div class="row">
-      <div class="four wide column"></div>
-      <div class="twelve wide column">
-        <button type="button" name="action" id="submit" class="ui button mobile-submit" :class="[finished.length == questionsLength ? '' : 'disabled']" @click="onClick">
-          交卷
-        </button>
-      </div>
-    </div>
+    <button type="button" name="action" id="submit" class="btn" :class="[finished.length == questionsLength ? '' : 'disabled']" @click="onClick">
+      交卷
+    </button>
   </div>
 </template>
 
@@ -38,6 +29,3 @@ export default {
   }
 }
 </script>
-
-<style lang="css">
-</style>

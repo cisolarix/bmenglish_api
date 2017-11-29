@@ -1,0 +1,40 @@
+.practice {
+  margin-top: .5em;
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .questions-list {
+    margin-top: 5em;
+
+    .panel-header {
+      margin-bottom: 2em;
+    }
+
+    .panel-body {
+      .tile-content {
+        padding-top: .2em;
+
+        .tile-subtitle {
+          .option-title {
+            margin-left: .5em;
+          }
+        }
+      }
+    }
+  }
+
+  #scoreboard {
+    margin-top: 15vh;
+
+    .answered {
+      background: #5755d9;
+      border-color: #4b48d6;
+      color: white;
+    }
+  }
+}
