@@ -8,13 +8,17 @@
         <div class="panel">
           <div class="panel-header"></div>
           <div class="panel-body">
-            <table class="table table-striped table-hover">
-              <% @workbooks.each_with_index do |book, index| %>
-              <tr>
-                <td><%= link_to book.textbook.title, workbook_path(book) %></td>
-              </tr>
-              <% end %>
-            </table>
+            <% if @workbooks.present? %>
+              <table class="table table-striped table-hover">
+                <% @workbooks.each_with_index do |book, index| %>
+                <tr>
+                  <td><%= link_to book.textbook.title, workbook_path(book) %></td>
+                </tr>
+                <% end %>
+              </table>
+            <% else %>
+              <div class='text-center'>你还没有练习册，去<%= link_to '添加几个吧', textbooks_path %></div>
+            <% end %>
           </div>
           <div class="panel-footer">
           </div>

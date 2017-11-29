@@ -2,20 +2,22 @@
   <div class="panel">
     <div class="panel-header"></div>
     <div class="panel-body">
+      <% if flash[:error] %>
+        <div class="toast toast-error"><%= flash[:error] %></div>
+      <% end %>
       <%= form_for @sign_in, url: sign_in_path, method: :post, html: { class: 'ui large form' } do |f| %>
-      <div class="form-group">
-        <label class="form-label">手机号码</label>
-        <input class="form-input" type="text" name="users_sign_in[cell]" placeholder="手机号码">
-      </div>
-      <div class="form-group">
-        <label class="form-label">密码</label>
-        <input class="form-input" type="password" name="users_sign_in[password]" placeholder="密码">
-      </div>
-      <div class="form-group text-right" id='btn-div'>
-        <button type="submit" class="btn btn-primary" id='submit-btn'>登录</button>
-      </div>
+        <div class="form-group">
+          <label class="form-label">手机号码</label>
+          <input class="form-input" type="text" name="users_sign_in[cell]" placeholder="手机号码">
+        </div>
+        <div class="form-group">
+          <label class="form-label">密码</label>
+          <input class="form-input" type="password" name="users_sign_in[password]" placeholder="密码">
+        </div>
+        <div class="form-group text-right" id='btn-div'>
+          <button type="submit" class="btn btn-primary" id='submit-btn'>登录</button>
+        </div>
       <% end %>
     </div>
-    <!-- <div class="panel-footer"></div> -->
   </div>
 </div>

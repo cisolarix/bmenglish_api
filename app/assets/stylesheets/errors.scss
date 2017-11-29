@@ -1,4 +1,4 @@
-#sign_in {
+.errors_pages {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,13 +7,5 @@
   .panel {
     width: 400px;
     min-width: 400px;
-  }
-
-  #submit-btn {
-    margin-top: .4em;
-  }
-
-  #btn-div {
-    margin-bottom: 1em;
   }
 }

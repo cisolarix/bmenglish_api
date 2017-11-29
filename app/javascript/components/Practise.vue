@@ -24,13 +24,24 @@
     </div>
 
     <div class="container">
-      <div class="columns">
+      <div class="columns" v-if="questions.size > 0">
         <div class="column col-10">
           <Questions></Questions>
         </div>
         <div class="column col-2">
           <Scoreboard></Scoreboard>
         </div>
+      </div>
+
+      <div class="panel" id="placeholder-hint" else>
+        <div class="panel-header">
+          <div class="panel-title"></div>
+        </div>
+        <div class="panel-nav"></div>
+        <div class="panel-body text-center">
+          练习册还在建设中，过段时间再来练习吧……
+        </div>
+        <div class="panel-footer"></div>
       </div>
     </div>
 
@@ -39,6 +50,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Questions from './practise/Questions.vue'
 import Scoreboard from './practise/Scoreboard.vue'
 import Result from './practise/Result.vue'
@@ -46,6 +58,9 @@ import Result from './practise/Result.vue'
 export default {
   data() {
     return { workbook_id: '', workbook_title: '', current_user: null }
+  },
+  computed: {
+    ...mapState(['questions'])
   },
   components: {
     Questions,

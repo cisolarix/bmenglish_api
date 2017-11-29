@@ -5,6 +5,6 @@ class User < ApplicationRecord
 
   def added_textbook?(textbook_id: nil)
     return if textbook_id.blank?
-    workbook_ids.include? textbook_id.to_i
+    workbooks.pluck(:textbook_id).include? textbook_id.to_i
   end
 end

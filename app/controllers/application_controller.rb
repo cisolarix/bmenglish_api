@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   private
 
   def user_not_authorized
-    render 'errors/403', status: 403, locals: {message: '您无法访问当前资源'}, formats: :html
+    render 'errors/403', status: 403,
+                         locals: { message: '您无法访问当前资源' },
+                         formats: :html
   end
 end

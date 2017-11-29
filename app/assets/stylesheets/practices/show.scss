@@ -10,8 +10,15 @@
     padding: .5em;
   }
 
+  .panel#placeholder-hint {
+    margin-top: 5em;
+  }
+
   .questions-list {
     margin-top: 5em;
+    .panel {
+      border: none;
+    }
 
     .panel-header {
       margin-bottom: 2em;
@@ -31,7 +38,7 @@
   }
 
   #scoreboard {
-    margin-top: 15vh;
+    margin-top: 10.8vh;
 
     .answered {
       background: #5755d9;
