@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="modal active" v-if="showModal">
+    <a href="#close" class="modal-overlay" aria-label="Close"></a>
     <div class="modal-container">
       <div class="modal-header">
         <div class="modal-title h5">考核结果</div>
