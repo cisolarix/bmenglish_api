@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE_URL = 'http://106.15.88.13'
+const BASE_URL = gon.base_url
 
 export default {
   fetchList(workbook_id, lesson_id) {

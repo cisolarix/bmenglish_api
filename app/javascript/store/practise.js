@@ -13,7 +13,11 @@ export default new Vuex.Store({
     choices: [],
     finished: [],
     showModal: false,
-    result: null
+    result: {
+      score: 0,
+      total: 0,
+      correct: 0
+    }
   },
   mutations: {
     fetchedList(state, payload) {
@@ -24,16 +28,10 @@ export default new Vuex.Store({
     checkedOption(state, payload) {
       let { questionIndex, questionId, optionId} = payload
       if (state.choices[questionIndex] == undefined) {
-        // state.choices.splice(questionIndex, 0, { questionId, optionId: [optionId] })
         state.choices.splice(questionIndex, 0, { questionId, optionId: new Set([optionId]) })
       } else {
         state.choices[questionIndex].optionId.add(optionId)
-        // let optionIds = state.choices[questionIndex].optionId
-        // if (!optionIds.includes(optionId)) {
-        //   state.choices[questionIndex].optionId.push(optionId)
-        // }
       }
-      console.log(state.choices)
 
       if (!state.finished.includes(questionIndex)) {
         state.finished.push(questionIndex)
@@ -43,16 +41,10 @@ export default new Vuex.Store({
       let { questionIndex, questionId, optionId} = payload
       if (state.choices[questionIndex] != undefined) {
         state.choices[questionIndex].optionId.delete(optionId)
-        // let optionIds = state.choices[questionIndex].optionId
-        // let found = optionIds.indexOf(optionId)
-        // if (found > -1) {
-        //   state.choices[questionIndex].optionId.splice(found, 1)
-        // }
         if (state.choices[questionIndex].optionId.size == 0) {
           let index = state.choices.indexOf(questionIndex)
           state.finished = state.finished.filter( e => e !== questionIndex)
         }
-        console.log(state.choices)
       }
     },
     submitedPractice(state, payload) {
@@ -63,7 +55,7 @@ export default new Vuex.Store({
       window.location.reload(true);
     },
     showAnswer(state, payload) {
-      let url = `http://106.15.88.13/workbooks/${gon.params.workbook_id}/lessons/${gon.params.id}/practices/${state.result.id}/answers`
+      let url = `${gon.base_url}/workbooks/${gon.params.workbook_id}/lessons/${gon.params.id}/practices/${state.result.id}/answers`
       window.location.replace(url)
     }
     // selectQuestion(state, payload) {
