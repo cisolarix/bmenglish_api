@@ -1,5 +1,6 @@
 class BaseController < ApplicationController
   before_action :login_required!
+  before_action :populate_gon
 
   helper_method :current_user
 
@@ -11,6 +12,10 @@ class BaseController < ApplicationController
 
   def current_user
     @current_user ||= User.find_by id: session[:user_id]
+  end
+
+  def populate_gon
     gon.current_user = @current_user
+    gon.base_url = ENV['FE_BASE_URL']
   end
 end

@@ -1,9 +1,11 @@
 import axios from 'axios'
 
-const BASE_URL = 'http://106.15.88.13'
+console.log(gon)
+const BASE_URL = gon.base_url
 
 export default {
   fetchList(page) {
+    console.log(`${BASE_URL}/questions.json?page=${page}`)
     return axios.get(`${BASE_URL}/questions.json?page=${page}`)
   },
   updateQuestion(data) {
