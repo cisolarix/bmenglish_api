@@ -6,6 +6,8 @@
     top: 0;
     left: 0;
     width: 100%;
+    background-color: whitesmoke;
+    padding: .5em;
   }
 
   .questions-list {
@@ -35,6 +37,11 @@
       background: #5755d9;
       border-color: #4b48d6;
       color: white;
+    }
+
+    #numbers {
+      padding: .5em 0;
+      margin: .5em 0;
     }
   }
 }
