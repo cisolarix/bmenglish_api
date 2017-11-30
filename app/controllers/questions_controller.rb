@@ -34,8 +34,8 @@ class QuestionsController < BaseController
     @q.sorts = 'id desc' if @q.sorts.empty?
     results = @q.result(distinct: true)
     @current_page = params[:page] || 1
-    @total = results.count
     @questions = results.page(@current_page).per(10)
+    @total_pages = @questions.total_pages
   end
 
   def load_chapters

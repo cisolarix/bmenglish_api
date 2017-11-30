@@ -1,4 +1,4 @@
-json.total @total
+json.total_pages @total_pages
 json.current_page @current_page
 
 json.questions do

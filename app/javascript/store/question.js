@@ -1,33 +1,49 @@
 import Vue from 'vue/dist/vue.esm'
 import Vuex from 'vuex'
-import api from './api/question'
+import api from '../api/question'
 import axios from 'axios'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    questions: [],
-    total: 0,
+    questions: ['foo', 'bar'],
+    totalPages: 0,
     currentPage: 1,
     currentQuestion: null,
-    chapters: []
+    chapters: [],
+    showModal: false,
+    modalTitle: ''
   },
   mutations: {
     fetchedList(state, payload) {
       state.questions = payload.questions
-      state.total = payload.total
+      state.totalPages = payload.total_pages
       state.currentPage = payload.current_page
       state.chapters = payload.chapters
     },
-    selectQuestion(state, payload) {
-      state.currentQuestion = payload.currentQuestion
+    editQuestion(state, payload) {
+      state.currentQuestion = payload.question
+      state.modalTitle = '编辑题目'
+      state.showModal = true
     },
-    setQuestion(state, value) {
-      state.currentQuestion = value
+    newQuestion(state, payload) {
+      state.currentQuestion = {
+        id: null,
+        title: '',
+        chapter_ids: [],
+        options: [
+          { id: null, content: '', correct: false },
+          { id: null, content: '', correct: false },
+          { id: null, content: '', correct: false },
+          { id: null, content: '', correct: false }
+        ]
+      }
+      state.modalTitle = '新建题目'
+      state.showModal = true
     },
     canceledQuestion(state) {
-      state.currentQuestion = null
+      state.showModal = false
     }
   },
   actions: {
@@ -35,6 +51,7 @@ export default new Vuex.Store({
       api.updateQuestion(payload)
          .then(response => {
            context.dispatch('fetchList')
+           context.state.showModal = false
          })
          .catch(error => { console.log(error) })
     },

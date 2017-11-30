@@ -1,11 +1,9 @@
 import axios from 'axios'
 
-console.log(gon)
 const BASE_URL = gon.base_url
 
 export default {
   fetchList(page) {
-    console.log(`${BASE_URL}/questions.json?page=${page}`)
     return axios.get(`${BASE_URL}/questions.json?page=${page}`)
   },
   updateQuestion(data) {

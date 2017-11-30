@@ -24,7 +24,7 @@
     </div>
 
     <div class="container">
-      <div class="columns" v-if="questions.size > 0">
+      <div class="columns" v-if="questions.length > 0">
         <div class="column col-10">
           <Questions></Questions>
         </div>

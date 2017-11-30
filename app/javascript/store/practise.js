@@ -58,24 +58,8 @@ export default new Vuex.Store({
       let url = `${gon.base_url}/workbooks/${gon.params.workbook_id}/lessons/${gon.params.id}/practices/${state.result.id}/answers`
       window.location.replace(url)
     }
-    // selectQuestion(state, payload) {
-    //   state.currentQuestion = payload.currentQuestion
-    // },
-    // setQuestion(state, value) {
-    //   state.currentQuestion = value
-    // },
-    // canceledQuestion(state) {
-    //   state.currentQuestion = null
-    // }
   },
   actions: {
-    // updateQuestion(context, payload) {
-    //   api.updateQuestion(payload)
-    //      .then(response => {
-    //        context.dispatch('fetchList')
-    //      })
-    //      .catch(error => { console.log(error) })
-    // },
     fetchList(context, payload) {
       api.fetchList(gon.params.workbook_id, gon.params.id)
         .then(response => {
@@ -96,13 +80,5 @@ export default new Vuex.Store({
         })
         .catch(error => { console.log(error) })
     }
-
-    // deleteQuestion(context, payload) {
-    //   api.deleteQuestion(payload.id)
-    //      .then(response => {
-    //        context.dispatch('fetchList')
-    //      })
-    //      .catch(error => { console.log(error) })
-    // }
   }
 })

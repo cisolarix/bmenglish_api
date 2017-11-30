@@ -1,0 +1,35 @@
+.questions-admin {
+
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(225, 224, 255, .75);
+    padding: .5em;
+  }
+}
+
+.questions-admin-list {
+  margin-top: 5em;
+
+  .question-actions {
+    display: flex;
+
+    .action {
+      cursor: pointer;
+    }
+
+    .edit-question-action {
+      margin-right: 3vw;
+    }
+
+    &:hover .delete-question-action {
+      visibility: visible;
+    }
+    .delete-question-action {
+      visibility: hidden;
+    }
+  }
+}
