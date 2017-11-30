@@ -23,9 +23,16 @@
                 <label class="form-label" for="question_chapter">所属章节</label>
               </div>
               <div class="col-11">
+                <multiselect
+                  v-model="currentQuestion.chapter_ids"
+                  :multiple="true"
+                  :close-on-select="false"
+                  :hide-selected="true"
+                  :options="chapters"
+                  track-by='id'
+                  label="title">
+                </multiselect>
                 <div class="form-group">
-                  <select class="" name="" id="question_chapter">
-                  </select>
                 </div>
               </div>
             </div>
@@ -57,6 +64,8 @@
 <script>
   import { mapState } from 'vuex'
   import { VueEditor } from 'vue2-editor'
+  import Multiselect from 'vue-multiselect'
+  import 'vue-multiselect/dist/vue-multiselect.min.css'
 
   export default {
     computed: {
@@ -85,7 +94,8 @@
       }
     },
     components: {
-      VueEditor
+      VueEditor,
+      Multiselect
     }
   }
 </script>

@@ -12,5 +12,4 @@
 //
 //= require jquery
 //= require rails-ujs
-//= require semantic
 //= require_tree .
