@@ -24,13 +24,15 @@
               </div>
               <div class="col-11">
                 <multiselect
-                  v-model="currentQuestion.chapter_ids"
+                  v-model="currentQuestion.chapter_options"
                   :multiple="true"
                   :close-on-select="false"
                   :hide-selected="true"
                   :options="chapters"
-                  track-by='id'
-                  label="title">
+                  :value="currentQuestion.chapter_options"
+                  label="title"
+                  placeholder="选择章节"
+                  selectLabel=''>
                 </multiselect>
                 <div class="form-group">
                 </div>
@@ -82,7 +84,7 @@
             id: currentQuestion.id,
             title: currentQuestion.title,
             options_attributes: currentQuestion.options,
-            chapter_ids: currentQuestion.chapter_ids
+            chapter_options: currentQuestion.chapter_options
           }
           this.$store.dispatch('updateQuestion', {
             question: data

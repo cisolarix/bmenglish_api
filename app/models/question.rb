@@ -13,4 +13,19 @@ class Question < ApplicationRecord
   def correct_answers_ids
     correct_answers.ids
   end
+
+  # 在表单页展示
+  def chapter_options
+    chapters.collect do |c|
+      {
+        id: c.id,
+        title: "#{c.ancestors.pluck(:title).join(' ≫ ')} ≫ #{c.title}"
+      }
+    end
+  end
+
+  # 处理表单回传
+  def chapter_options=(value)
+    self.chapter_ids = value.collect { |v| v['id'] }
+  end
 end
