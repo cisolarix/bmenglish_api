@@ -13,12 +13,18 @@ set :branch, 'master'
 set :user, 'deployer'
 set :forward_agent, true
 set :term_mode, nil
+set :force_asset_precompile, true
 
 # shared dirs and files will be symlinked into the app-folder by the 'deploy:link_shared_paths' step.
 # set :shared_dirs, fetch(:shared_dirs, []).push('somedir')
 # set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/secrets.yml')
-set :shared_paths, fetch(:shared_dirs, []).push('tmp', 'log', 'public/uploads')
-set :shared_files, fetch(:shared_files, []).push('config/database.yml', 'config/application.yml', 'config/secrets.yml')
+set :shared_paths, fetch(:shared_dirs, []).push('tmp', 'log', 'public/uploads', 'public/packs')
+set :shared_files, fetch(:shared_files, []).push(
+  'config/database.yml',
+  'config/application.yml',
+  'config/secrets.yml',
+  'config/puma.rb'
+)
 
 # This task is the environment that is loaded for all remote run commands, such as
 # `mina deploy` or `mina rake`.
@@ -34,6 +40,7 @@ end
 
 desc 'Deploys the current version to the server'
 task :deploy do
+  invoke :'git:ensure_pushed'
   deploy do
     invoke :'git:clone'
     invoke :'deploy:link_shared_paths'
