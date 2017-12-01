@@ -88,4 +88,13 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+    bearychat: {
+      webhook_url: 'https://hook.bearychat.com/=bwBkN/incoming/960e1cd6d643e937dc1dfb32bc065a3a',
+      text: '异常',
+      markdown: true,
+      channel: 'bearychat-dev',
+      attachments: []
+    }
 end
