@@ -1,9 +1,6 @@
 import Vue from 'vue/dist/vue.esm'
-import store from '../store'
-import ElementUI from 'element-ui'
+import store from '../store/question'
 import Questions from '../components/Questions.vue'
-
-Vue.use(ElementUI)
 
 document.addEventListener('DOMContentLoaded', () => {
   var element = document.getElementById("questions")

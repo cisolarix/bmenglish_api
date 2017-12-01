@@ -34,8 +34,8 @@ class QuestionsController < BaseController
     @q.sorts = 'id desc' if @q.sorts.empty?
     results = @q.result(distinct: true)
     @current_page = params[:page] || 1
-    @total = results.count
     @questions = results.page(@current_page).per(10)
+    @total_pages = @questions.total_pages
   end
 
   def load_chapters
@@ -60,6 +60,6 @@ class QuestionsController < BaseController
 
   def question_params
     params.fetch(:question, {})
-          .permit(:id, :title, chapter_ids: [], tag_list: [], options_attributes: [:id, :question_id, :content, :correct, :_destroy])
+          .permit(:id, :title, chapter_ids: [], chapter_options: [:id, :title], options_attributes: [:id, :question_id, :content, :correct, :_destroy])
   end
 end

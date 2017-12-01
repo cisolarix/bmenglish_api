@@ -24,10 +24,6 @@ t.save
   )
 end
 
-Faker::Lorem.words(10).uniq.each do |word|
-  Tag.create name: word
-end
-
 book = Chapter.create title: '英语-人教版七年级下'
 unit_1 = book.children.create title: 'Unit 1 Can you play the guitar?'
 unit_1.children.create title: '定冠词'
