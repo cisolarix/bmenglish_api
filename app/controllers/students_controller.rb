@@ -34,7 +34,8 @@ class StudentsController < BaseController
   end
 
   def load_students
-    @students = Student.page params[:page]
+    @q = Student.ransack params[:q]
+    @students = @q.result.page params[:page]
   end
 
   def build_student
