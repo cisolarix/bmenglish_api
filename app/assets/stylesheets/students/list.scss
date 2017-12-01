@@ -1,0 +1,28 @@
+.students-list {
+  .header {
+    z-index: 200;
+  }
+
+  .container {
+    margin-top: 5em;
+
+    .student-actions {
+      display: flex;
+
+      .action {
+        cursor: pointer;
+      }
+
+      .edit-student-action {
+        margin-right: 3vw;
+      }
+
+      &:hover .delete-student-action {
+        visibility: visible;
+      }
+      .delete-student-action {
+        visibility: hidden;
+      }
+    }
+  }
+}

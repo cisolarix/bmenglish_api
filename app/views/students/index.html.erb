@@ -1,0 +1,48 @@
+<div class="students-list">
+  <header class="navbar header">
+    <section class="navbar-section">
+      <a href="/students/new" class='btn btn-primary'>新建学生</a>
+    </section>
+    <section class="navbar-center">
+      <h3>学生管理</h3>
+    </section>
+    <section class="navbar-section text-right">
+      <%= render partial: 'common/dropdown', locals: { user: current_user } %>
+    </section>
+  </header>
+
+  <div class="container">
+    <div class="columns">
+      <div class="column col-12">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>姓名</th>
+              <th>手机号码</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @students.each_with_index do |student, index| %>
+            <tr>
+              <td>
+                <%= link_to student.name, student %>
+              </td>
+              <td><%= student.cell %></td>
+              <td class='student-actions'>
+                <%= link_to edit_student_path(student), class: 'edit-student-action action' do %>
+                  <i class="icon icon-edit"></i>
+                <% end %>
+
+                <%= link_to student, method: :delete, remote: true, class: 'delete-student-action action', data: { confirm: "确定删除此学生？" } do %>
+                  <i class="icon icon-delete"></i>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

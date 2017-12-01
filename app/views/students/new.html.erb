@@ -1,10 +1,9 @@
 <div class="chapters-list">
   <header class="navbar header">
     <section class="navbar-section">
-      <a href="/chapters/new" class='btn btn-primary'>新建章节</a>
     </section>
     <section class="navbar-center">
-      <h3>所有章节</h3>
+      <h3>新建学生</h3>
     </section>
     <section class="navbar-section text-right">
       <%= render partial: 'common/dropdown', locals: { user: current_user } %>
@@ -18,7 +17,7 @@
         <div class="panel">
           <div class="panel-header"></div>
           <div class="panel-body">
-            <%= render 'item', collection: @chapters %>
+            <%= render 'form' %>
           </div>
           <div class="panel-footer"></div>
         </div>

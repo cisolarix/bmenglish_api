@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   end
 
   resources :chapters
+  resources :students
 
   root to: 'textbooks#index'
 end
