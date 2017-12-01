@@ -15,7 +15,6 @@
               </div>
               <div class="col-11">
                 <vue-editor v-model="currentQuestion.title"></vue-editor>
-                <textarea class="form-input" id="question_title" placeholder="题干内容" rows="3"></textarea>
               </div>
             </div>
             <div class="form-group">

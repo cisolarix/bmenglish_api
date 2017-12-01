@@ -13,9 +13,9 @@
             {{ current_user.name }} <i class="icon icon-caret"></i>
           </a>
           <ul class="menu">
-            <li class="menu-item">
-              <a href="/sign_out">注销</a>
-            </li>
+            <li class="menu-item"><a href="/chapters">章节管理</a></li>
+            <li class="menu-item"><a href="/questions">题目管理</a></li>
+            <li class="menu-item"><a href="/sign_out">注销</a></li>
           </ul>
         </div>
       </section>

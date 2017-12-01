@@ -13,5 +13,15 @@
  *= require_tree .
  *= require 'spectre.min'
  *= require 'spectre-icons.min'
+ *= require 'select2.min'
  *= require_self
  */
+
+ .header {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   background-color: rgba(225, 224, 255, .75);
+   padding: .5em;
+ }
