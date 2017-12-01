@@ -42,4 +42,8 @@ class PracticesController < BaseController
   def practice_params
     params.fetch(:practice, {}).permit(choices: [:questionId, optionId: []])
   end
+
+  def ensure_priviledge!
+    authorize :practice, :access?
+  end
 end

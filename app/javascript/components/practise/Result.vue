@@ -1,8 +1,9 @@
 <template lang="html">
   <div class="modal active" v-if="showModal">
-    <a href="javascript:;" class="modal-overlay" aria-label="Close"></a>
+    <a href="javascript:;" class="modal-overlay"></a>
     <div class="modal-container">
       <div class="modal-header">
+        <a href="javascript:;" class="btn btn-clear float-right" @click="closeModal"></a>
         <div class="modal-title h5">考核结果</div>
       </div>
       <div class="modal-body">
@@ -16,7 +17,6 @@
       </div>
       <div class="modal-footer">
         <button class="btn" @click="reload">再试一次 😢</button>
-        <button class="btn btn-primary" @click="showAnswer">查看答案</button>
       </div>
     </div>
   </div>
@@ -33,8 +33,8 @@ export default {
     reload() {
       this.$store.commit('reload')
     },
-    showAnswer() {
-      this.$store.commit('showAnswer')
+    closeModal() {
+      this.$store.commit('closeModal')
     }
   }
 }

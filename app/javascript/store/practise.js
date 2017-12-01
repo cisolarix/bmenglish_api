@@ -54,10 +54,13 @@ export default new Vuex.Store({
     reload(state, payload) {
       window.location.reload(true);
     },
-    showAnswer(state, payload) {
-      let url = `${gon.base_url}/workbooks/${gon.params.workbook_id}/lessons/${gon.params.id}/practices/${state.result.id}/answers`
-      window.location.replace(url)
+    closeModal(state, payload) {
+      state.showModal = false
     }
+    // showAnswer(state, payload) {
+    //   let url = `${gon.base_url}/workbooks/${gon.params.workbook_id}/lessons/${gon.params.id}/practices/${state.result.id}/answers`
+    //   window.location.replace(url)
+    // }
   },
   actions: {
     fetchList(context, payload) {

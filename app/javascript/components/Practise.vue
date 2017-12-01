@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <div class="panel" id="placeholder-hint" else>
+      <div class="panel" id="placeholder-hint" v-else>
         <div class="panel-header">
           <div class="panel-title"></div>
         </div>
