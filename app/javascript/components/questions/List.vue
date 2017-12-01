@@ -10,7 +10,7 @@
         </thead>
         <tbody>
           <tr v-for="(question, index) in questions">
-            <td v-text="question.title"></td>
+            <td>{{ question.title | shorten }}</td>
             <td class='question-actions'>
               <a class='edit-question-action action' @click.prevent='editQuestion(index)'><i class="icon icon-edit"></i></a>
               <a class="delete-question-action action" @click.prevent='deleteQuestion(question.id)'>
@@ -35,7 +35,6 @@
 </template>
 
 <script>
-// import Vue from 'vue/dist/vue.esm'
 import { mapState } from 'vuex'
 import _ from 'lodash'
 import Paginate from 'vuejs-paginate'
@@ -64,9 +63,12 @@ export default {
         this.$store.dispatch('deleteQuestion', { id: questionId })
       }
     },
+  },
+  filters: {
+    shorten(value) {
+      if (!value) return ''
+      return value.substr(0, 90)
+    }
   }
 }
 </script>
-
-<style lang="css">
-</style>
