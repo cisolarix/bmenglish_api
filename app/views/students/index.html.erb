@@ -44,5 +44,9 @@
         </table>
       </div>
     </div>
+    <div class='columns'>
+      <div class="column col-10"><%= paginate @students %></div>
+      <div class="column col-2 student-list-page-info"><%= page_entries_info @students %></div>
+    </div>
   </div>
 </div>

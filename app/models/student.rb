@@ -1,4 +1,5 @@
 class Student < User
+  paginates_per 10
   before_validation :populate_password
 
   private

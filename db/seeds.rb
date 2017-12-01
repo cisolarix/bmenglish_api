@@ -24,6 +24,22 @@ t.save
   )
 end
 
+20.times do
+  u = Student.new
+  u.name = Faker::Lorem.words(1).first
+  cell = begin
+    seed = (1..9).to_a
+    tmp = []
+    11.times do
+      tmp << seed.sample
+    end
+    tmp.join
+  end
+  u.cell = cell
+  u.password = 'yuyouleon'
+  u.save
+end
+
 book = Chapter.create title: '英语-人教版七年级下'
 unit_1 = book.children.create title: 'Unit 1 Can you play the guitar?'
 unit_1.children.create title: '定冠词'
