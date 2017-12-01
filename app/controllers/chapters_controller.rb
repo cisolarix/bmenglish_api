@@ -48,4 +48,8 @@ class ChaptersController < BaseController
   def load_chapter
     @chapter = Chapter.find params[:id]
   end
+
+  def ensure_priviledge!
+    authorize Chapter, :access?
+  end
 end

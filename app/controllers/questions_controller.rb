@@ -62,4 +62,8 @@ class QuestionsController < BaseController
     params.fetch(:question, {})
           .permit(:id, :title, chapter_ids: [], chapter_options: [:id, :title], options_attributes: [:id, :question_id, :content, :correct, :_destroy])
   end
+
+  def ensure_priviledge!
+    authorize Question, :access?
+  end
 end

@@ -1,5 +1,6 @@
 class BaseController < ApplicationController
   before_action :login_required!
+  before_action :ensure_priviledge!
   before_action :populate_gon
 
   helper_method :current_user
@@ -17,5 +18,9 @@ class BaseController < ApplicationController
   def populate_gon
     gon.current_user = @current_user
     gon.base_url = ENV['FE_BASE_URL']
+  end
+
+  def ensure_priviledge!
+    raise '必须由子类来实现'
   end
 end

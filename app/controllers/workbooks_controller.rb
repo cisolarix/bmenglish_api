@@ -34,4 +34,8 @@ class WorkbooksController < BaseController
   def load_textbook
     @textbook = Chapter.find(@workbook.textbook_id).subtree.arrange
   end
+
+  def ensure_priviledge!
+    authorize Workbook, :access?
+  end
 end

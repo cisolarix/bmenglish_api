@@ -21,4 +21,8 @@ class TextbooksController < BaseController
   def load_workbook
     @workbook = Workbook.find_by(user_id: current_user.id, textbook_id: params[:id])
   end
+
+  def ensure_priviledge!
+    authorize Textbook, :access?
+  end
 end
