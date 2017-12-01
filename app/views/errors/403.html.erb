@@ -1,9 +1,12 @@
 <div class="errors_pages">
-  <div class="panel">
-    <div class="panel-header"></div>
-    <div class="panel-body">
-      <div class='text-center'>403: <%= message || '权限不够' %></div>
+  <div class="empty">
+    <div class="empty-icon">
+      <i class="icon icon-people"></i>
     </div>
-    <div class="panel-footer"></div>
+    <p class="empty-title h5"><%= message || '权限不够' %></p>
+    <p class="empty-subtitle"></p>
+    <div class="empty-action">
+      <a class="btn" href="javascript:window.history.back()">回到上一页</a>
+    </div>
   </div>
 </div>
