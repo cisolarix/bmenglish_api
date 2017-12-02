@@ -44,7 +44,7 @@ class StudentsController < BaseController
   end
 
   def student_params
-    params.fetch(:student, {}).permit(:name, :cell)
+    params.fetch(:student, {}).permit(:name, :cell, :password)
   end
 
   def ensure_priviledge!

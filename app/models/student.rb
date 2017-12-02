@@ -7,6 +7,7 @@ class Student < User
   private
 
   def populate_password
+    return if password.present?
     self.password = '123456'
     self.password_confirmation = '123456'
   end
