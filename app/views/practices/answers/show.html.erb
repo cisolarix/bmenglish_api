@@ -2,10 +2,10 @@
   <div class="header">
     <header class="navbar">
       <section class="navbar-section">
-        <a href="/workbooks/<%= params[:workbook_id] %>" class="navbar-brand mr-2" id='back-to-workbook'>回到练习册</a>
+        <a href="javascript:window.history.back();" class="navbar-brand mr-2" id='back-to-workbook'>回到上一页</a>
       </section>
       <section class="navbar-center">
-        <span><%= @workbook.textbook.title %></span>
+        <span><%= @practice.workbook&.title %></span>
       </section>
       <section class="navbar-section text-right">
         <div class="dropdown dropdown-right">
@@ -28,7 +28,7 @@
         <div class="panel">
           <div class="panel-header">
             <div class="panel-title">
-              <%= "#{@lesson.parent.title} - #{@lesson.title}" %>
+              <%= "#{@practice.lesson.parent.title} - #{@practice.lesson.title}" %>
             </div>
           </div>
           <div class="panel-nav">
@@ -37,7 +37,7 @@
             <%= render partial: 'item', locals: { collection: @questions } %>
           </div>
           <div class="panel-footer">
-            练习日期：<%= @result.created_at.localtime.strftime("%Y-%m-%d %H:%M:%S") %>，正确率：<%= @result.score %>%
+            练习日期：<%= @practice.created_at.localtime.strftime("%Y-%m-%d %H:%M:%S") %>，正确率：<%= @practice.score %>%
           </div>
         </div>
       </div>

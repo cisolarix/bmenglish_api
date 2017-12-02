@@ -26,3 +26,5 @@ config/application.yml
 config/database.yml
 config/secrets.yml
 config/puma.rb
+
+.DS_Store

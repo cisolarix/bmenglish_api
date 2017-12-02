@@ -1,6 +1,8 @@
 class Practices::Result < ApplicationRecord
   self.table_name = 'practice_results'
 
+  paginates_per 10
+
   belongs_to :user
   belongs_to :workbook
   belongs_to :lesson

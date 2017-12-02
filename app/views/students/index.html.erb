@@ -38,7 +38,7 @@
             <% @students.each_with_index do |student, index| %>
             <tr>
               <td>
-                <%= link_to student.name, student %>
+                <%= link_to student.name, student_practices_path(student_id: student.id) %>
               </td>
               <td><%= student.cell %></td>
               <td class='student-actions'>

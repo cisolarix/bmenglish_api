@@ -7,21 +7,25 @@ Rails.application.routes.draw do
   resources :textbooks, only: %w[index show]
 
   post 'add_to_my_workbook', to: 'workbooks#create'
-  resources :workbooks, only: [:index, :show] do
+  resources :workbooks, only: %i[index show] do
     resources :lessons, only: [:show] do
       member do
         get 'practice', to: 'practices#show'
         post 'submit_practice', to: 'practices#create'
       end
-
-      resources :practices, only: [:show] do
-        get 'answers', to: 'practices/answers#show'
-      end
     end
   end
 
+  namespace :practices do
+    resources :answers, only: [:show]
+  end
+
   resources :chapters
-  resources :students
+  resources :students do
+    scope module: :students do
+      resources :practices, only: %i[index show]
+    end
+  end
 
   root to: 'textbooks#index'
 end

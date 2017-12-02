@@ -1,26 +1,20 @@
 class Practices::AnswersController < BaseController
   def show
-    load_workbook
-    load_lesson
-    load_result
+    load_practice
     load_questions
   end
 
   private
 
-  def load_workbook
-    @workbook = Workbook.find params[:workbook_id]
-  end
-
-  def load_lesson
-    @lesson = Lesson.find params[:lesson_id]
-  end
-
-  def load_result
-    @result = Practices::Result.find params[:practice_id]
+  def load_practice
+    @practice = Practices::Result.find params[:id]
   end
 
   def load_questions
-    @questions = @result.questions
+    @questions = @practice.questions
+  end
+
+  def ensure_priviledge!
+    authorize :'Practices::Answer', :access?
   end
 end
