@@ -79,3 +79,5 @@ gem 'pundit', '~> 1.1'
 # 异常通知
 gem 'exception_notification', '~> 4.2', '>= 4.2.2'
 gem 'bearychat-notifier', '~> 0.0.6'
+
+gem 'shrine', '~> 2.8'

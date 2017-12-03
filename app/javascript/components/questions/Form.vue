@@ -14,7 +14,7 @@
                 <label class="form-label" for="question_title">题干</label>
               </div>
               <div class="col-11">
-                <vue-editor v-model="currentQuestion.title"></vue-editor>
+                <editor v-model="currentQuestion.title"></editor>
               </div>
             </div>
             <div class="form-group">
@@ -64,7 +64,7 @@
 
 <script>
   import { mapState } from 'vuex'
-  import { VueEditor } from 'vue2-editor'
+  import Editor from './Editor'
   import Multiselect from 'vue-multiselect'
   import 'vue-multiselect/dist/vue-multiselect.min.css'
 
@@ -95,8 +95,8 @@
       }
     },
     components: {
-      VueEditor,
-      Multiselect
+      Multiselect,
+      Editor
     }
   }
 </script>
