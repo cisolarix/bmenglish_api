@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :photos, only: [:create]
+  resources :photos, only: %i[create show]
 
   get 'sign_in', to: 'sessions#new'
   post 'sign_in', to: 'sessions#create'
