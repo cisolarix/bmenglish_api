@@ -20,6 +20,7 @@
 /public/packs
 /public/assets
 /public/packs-test
+/public/uploads
 /node_modules
 
 config/application.yml
