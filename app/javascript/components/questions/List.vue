@@ -10,7 +10,7 @@
         </thead>
         <tbody>
           <tr v-for="(question, index) in questions">
-            <td>{{ question.title | shorten }}</td>
+            <td v-html="sanitized(question.title)"></td>
             <td class='question-actions'>
               <a class='edit-question-action action' @click.prevent='editQuestion(index)'><i class="icon icon-edit"></i></a>
               <a class="delete-question-action action" @click.prevent='deleteQuestion(question.id)'>
@@ -38,6 +38,7 @@
 import { mapState } from 'vuex'
 import _ from 'lodash'
 import Paginate from 'vuejs-paginate'
+import sanitize from 'sanitize-html'
 
 export default {
   computed: {
@@ -63,11 +64,9 @@ export default {
         this.$store.dispatch('deleteQuestion', { id: questionId })
       }
     },
-  },
-  filters: {
-    shorten(value) {
+    sanitized(value) {
       if (!value) return ''
-      return value.substr(0, 90)
+      return sanitize(value)
     }
   }
 }
