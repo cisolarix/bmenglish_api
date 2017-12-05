@@ -6,6 +6,8 @@
     "axios": "^0.17.0",
     "coffeescript": "1.12.7",
     "lodash": "^4.17.4",
+    "select2": "^4.0.6-rc.1",
+    "spectre.css": "^0.4.7",
     "trix": "^0.11.1",
     "vue": "^2.5.9",
     "vue-loader": "^13.3.0",
