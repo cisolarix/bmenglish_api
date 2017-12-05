@@ -15,5 +15,9 @@
     "vendor/assets/bower",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "select2": "^4.0.5",
+    "spectre.css": "spectre#^0.4.7"
+  }
 }
