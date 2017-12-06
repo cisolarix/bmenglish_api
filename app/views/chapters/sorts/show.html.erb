@@ -36,21 +36,18 @@
 </div>
 
 <script type="text/javascript">
-  var el = document.getElementById('items');
-  var sortable = Sortable.create(el, {
+  // TODO: 移动到单独的 JS 文件中去
+  let el = document.getElementById('items');
+  Sortable.create(el, {
     onUpdate: function (evt) {
-      let cs = $('.chapter')
       let ids = []
       $('.chapter').each(function(i, obj) {
         ids.push($(obj).data('chapter-id'))
       })
 
-      console.log(ids)
-
       $.post(window.location.href, {
         chapter_ids: ids
       })
   	}
-  });
-
+  })
 </script>
