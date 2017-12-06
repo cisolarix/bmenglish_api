@@ -11,7 +11,7 @@ class Practices::AnswersController < BaseController
   end
 
   def load_questions
-    @questions = @practice.questions
+    @questions = @practice.questions.with_deleted
   end
 
   def ensure_priviledge!
