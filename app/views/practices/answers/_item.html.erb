@@ -1,5 +1,5 @@
 <% collection.each_with_index do |q, i| %>
-  <% question = q.question %>
+  <% question = q.question_with_deleted %>
 
   <div class="tile">
     <div class="tile-icon"><%= i + 1 %>：</div>

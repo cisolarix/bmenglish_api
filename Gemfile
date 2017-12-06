@@ -58,7 +58,7 @@ gem 'faker', '~> 1.8', '>= 1.8.4'
 
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
-gem 'paranoia', '~> 2.3', '>= 2.3.1'
+gem 'paranoia', '~> 2.4'
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 

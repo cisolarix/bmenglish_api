@@ -11,7 +11,7 @@ class Practices::AnswersController < BaseController
   end
 
   def load_questions
-    @questions = @practice.questions.unscoped
+    @questions = @practice.questions
   end
 
   def ensure_priviledge!
