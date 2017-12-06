@@ -1,0 +1,56 @@
+<div class="chapters-list">
+  <header class="navbar header">
+    <section class="navbar-section">
+      <a href="/chapters" class='btn btn-primary'>回到所有章节</a>
+    </section>
+    <section class="navbar-center">
+      <h3>所有章节</h3>
+    </section>
+    <section class="navbar-section text-right">
+      <%= render partial: 'common/dropdown', locals: { user: current_user } %>
+    </section>
+  </header>
+
+  <div class="container">
+    <div class="columns col-gapless">
+      <div class="column col-2"></div>
+      <div class="column col-8">
+        <div class="panel">
+          <div class="panel-header"></div>
+          <div class="panel-body">
+            <%= @chapter.title %>
+            <ul id='items'>
+              <% @children.each do |item| %>
+                <li class='chapter' data-chapter-id="<%= item.id %>">
+                  <%= item.title %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+          <div class="panel-footer"></div>
+        </div>
+      </div>
+      <div class="column col-2"></div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var el = document.getElementById('items');
+  var sortable = Sortable.create(el, {
+    onUpdate: function (evt) {
+      let cs = $('.chapter')
+      let ids = []
+      $('.chapter').each(function(i, obj) {
+        ids.push($(obj).data('chapter-id'))
+      })
+
+      console.log(ids)
+
+      $.post(window.location.href, {
+        chapter_ids: ids
+      })
+  	}
+  });
+
+</script>

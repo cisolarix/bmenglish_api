@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203030252) do
+ActiveRecord::Schema.define(version: 20171206132001) do
 
   create_table "chapters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
     t.string "ancestry"
+    t.integer "position", default: 0
     t.index ["ancestry"], name: "index_chapters_on_ancestry"
+    t.index ["position"], name: "chapters_position_index"
   end
 
   create_table "chapters_questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

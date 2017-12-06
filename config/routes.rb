@@ -22,7 +22,11 @@ Rails.application.routes.draw do
     resources :answers, only: [:show]
   end
 
-  resources :chapters
+  resources :chapters do
+    scope module: :chapters do
+      resource :sort, only: [:show, :create]
+    end
+  end
   resources :students do
     scope module: :students do
       resources :practices, only: %i[index show]

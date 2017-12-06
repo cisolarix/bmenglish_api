@@ -13,4 +13,5 @@
 //= require jquery
 //= require rails-ujs
 //= require select2/dist/js/select2.min
+//= require sortablejs/Sortable.min
 //= require_tree .

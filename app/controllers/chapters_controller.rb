@@ -37,7 +37,7 @@ class ChaptersController < BaseController
   end
 
   def load_chapters
-    @chapters = Chapter.arrange
+    @chapters = Chapter.arrange(order: { position: :asc })
   end
 
   def build_chapter
