@@ -18,6 +18,7 @@
       <% if children.present? %>
         <%= link_to '排序', chapter_sort_path(item), class: 'action' %>
       <% end %>
+      <%= link_to '克隆', chapter_clone_path(item), class: 'action' %>
     </li>
   </div>
 

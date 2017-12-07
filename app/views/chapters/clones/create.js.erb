@@ -1,0 +1,5 @@
+<% if @clone.errors.empty? %>
+  window.location.replace('/chapters')
+<% else %>
+  alert('排序错误: <%= @clone.errors.full_messages.join('\n') %>')
+<% end %>
