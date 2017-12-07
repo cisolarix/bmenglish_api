@@ -4,7 +4,7 @@
       <a href="/chapters" class='btn btn-primary'>回到所有章节</a>
     </section>
     <section class="navbar-center">
-      <h3>所有章节</h3>
+      <h3>年级/课本排序</h3>
     </section>
     <section class="navbar-section text-right">
       <%= render partial: 'common/dropdown', locals: { user: current_user } %>
@@ -18,9 +18,8 @@
         <div class="panel">
           <div class="panel-header"></div>
           <div class="panel-body">
-            <%= @chapter.title %>
             <ul id='items'>
-              <% @children.each do |item| %>
+              <% @chapters.each do |item| %>
                 <li class='chapter' data-chapter-id="<%= item.id %>">
                   <%= item.title %>
                 </li>

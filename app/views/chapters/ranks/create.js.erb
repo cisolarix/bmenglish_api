@@ -1,0 +1,5 @@
+<% if @rank.errors.empty? %>
+  window.location.reload(true)
+<% else %>
+  alert('排序错误: <%= @rank.errors.full_messages.join('\n') %>')
+<% end %>
