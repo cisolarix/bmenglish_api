@@ -15,7 +15,7 @@ class TextbooksController < BaseController
   end
 
   def load_book
-    @textbook = Chapter.find(params[:id]).subtree.arrange
+    @textbook = Chapter.find(params[:id]).subtree.arrange(order: { position: :asc })
   end
 
   def load_workbook

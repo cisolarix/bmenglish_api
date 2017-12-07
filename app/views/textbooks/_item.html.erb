@@ -3,7 +3,7 @@
     <li class="nav-item">
       <%= item[:title] %>
       <% if children.blank? && workbook.present?  %>
-        <a href="/workbooks/<%= params[:id] %>/lessons/<%= item.id %>/practice" class="click-to-practice">前往练习</a>
+        <!-- <a href="/workbooks/<%= @workbook.id %>/lessons/<%= item.id %>/practice" class="click-to-practice">前往练习</a> -->
       <% end %>
     </li>
 

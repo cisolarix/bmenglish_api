@@ -9,6 +9,18 @@ class Chapter < ApplicationRecord
 
   before_save :populate_position
 
+  def previous
+    siblings.where('position < ?', position).first
+  end
+
+  def next
+    siblings.where('position > ?', position).first
+  end
+
+  def first_leaf
+    children.first.children.first
+  end
+
   private
 
   def populate_position

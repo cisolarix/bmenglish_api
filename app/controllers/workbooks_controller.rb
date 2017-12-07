@@ -3,14 +3,14 @@ class WorkbooksController < BaseController
     load_workbooks
   end
 
-  def create
-    build_workbook
-    @workbook.save
-  end
-
   def show
     load_workbook
     load_textbook
+  end
+
+  def create
+    build_workbook
+    @workbook.save
   end
 
   private
@@ -32,7 +32,7 @@ class WorkbooksController < BaseController
   end
 
   def load_textbook
-    @textbook = Chapter.find(@workbook.textbook_id).subtree.arrange
+    @textbook = Chapter.find(@workbook.textbook_id).subtree.arrange(order: { position: :asc })
   end
 
   def ensure_priviledge!

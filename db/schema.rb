@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206132001) do
+ActiveRecord::Schema.define(version: 20171207104331) do
 
   create_table "chapters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -118,36 +118,13 @@ ActiveRecord::Schema.define(version: 20171206132001) do
     t.index ["type"], name: "index_users_on_type"
   end
 
-  create_table "workbook_drill_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "user_id"
-    t.bigint "question_id"
-    t.text "selected"
-    t.boolean "correct"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["question_id"], name: "index_workbook_drill_items_on_question_id"
-    t.index ["user_id"], name: "index_workbook_drill_items_on_user_id"
-  end
-
-  create_table "workbook_drills", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "user_id"
-    t.bigint "workbook_id"
-    t.bigint "lesson_id"
-    t.integer "score"
-    t.integer "seconds"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["lesson_id"], name: "index_workbook_drills_on_lesson_id"
-    t.index ["user_id"], name: "index_workbook_drills_on_user_id"
-    t.index ["workbook_id"], name: "index_workbook_drills_on_workbook_id"
-  end
-
   create_table "workbooks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.bigint "textbook_id"
     t.boolean "hidden", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "visible_lessons"
     t.index ["textbook_id"], name: "index_workbooks_on_textbook_id"
     t.index ["user_id"], name: "index_workbooks_on_user_id"
   end

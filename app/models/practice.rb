@@ -33,6 +33,10 @@ class Practice < ActiveType::Object
         (correct / total.to_f * 100).ceil
       end
 
+    if score >= 90 && next_lesson.present?
+      workbook.update! visible_lessons: workbook.visible_lessons.push(next_lesson.id).uniq
+    end
+
     practice_result = Practices::Result.create(
       user: user,
       workbook_id: workbook_id,
@@ -47,18 +51,17 @@ class Practice < ActiveType::Object
       total: choices.count,
       correct: results.select { |r| r[:correct] }.count
     }
+  end
 
-    # r = Practices::Result.new(
-    #   user: user,
-    #   workbook_id: workbook_id,
-    #   lesson_id: lesson_id,
-    #   score: score,
-    #   questions_attributes: results
-    # )
-    # puts '*' * 100
-    # puts r.valid?
-    # puts r.errors.inspect
-    # puts r.save
-    # puts '*' * 100
+  def workbook
+    @workbook ||= Workbook.find workbook_id
+  end
+
+  def lesson
+    @lesson = Lesson.find lesson_id
+  end
+
+  def next_lesson
+    @next_lesson = lesson.next
   end
 end

@@ -1,5 +1,18 @@
 <div class="workbooks-list">
-  <%= render partial: 'common/header', locals: { title: '所有练习册', user: current_user } %>
+  <div class='header mb-2'>
+    <header class="navbar">
+      <section class="navbar-section">
+        <%= link_to '所有课本', textbooks_path, class: 'btn' %>
+      </section>
+      <section class="navbar-center">
+        <h3>所有练习册</h3>
+      </section>
+      <section class="navbar-section text-right">
+        <%= render partial: 'common/dropdown', locals: { user: current_user } %>
+      </section>
+    </header>
+  </div>
+
 
   <div class="container">
     <div class="columns col-gapless">
