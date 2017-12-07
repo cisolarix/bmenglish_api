@@ -6,4 +6,14 @@ class Chapter < ApplicationRecord
   default_scope { order(position: :asc) }
 
   validates :title, presence: true
+
+  before_save :populate_position
+
+  private
+
+  def populate_position
+    return if position.present? && position.to_i > 0
+    return if siblings.blank?
+    self.position = siblings.maximum(:position) + 10
+  end
 end

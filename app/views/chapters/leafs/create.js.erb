@@ -1,0 +1,5 @@
+<% if @leaf.errors.empty? %>
+  window.location.replace(document.referrer)
+<% else %>
+  alert('排序错误: <%= @leaf.errors.full_messages.join('\n') %>')
+<% end %>

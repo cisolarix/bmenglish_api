@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     scope module: :chapters do
       resource :sort, only: %i[show create]
       resource :clone, only: %i[show create]
+      resource :leaf, only: %i[show create]
     end
   end
 
