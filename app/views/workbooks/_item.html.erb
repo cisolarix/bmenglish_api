@@ -9,7 +9,7 @@
              <%= item[:title] %>
            </a>
         <% elsif children.blank? %>
-          <a href="#" class="tooltip tooltip-right" data-tooltip="前一章节达到 90 以上才能解锁"><%= item[:title] %></a>
+          <a href="javascript:;" class="tooltip tooltip-right" data-tooltip="前一章节达到 90 以上才能解锁"><%= item[:title] %></a>
         <% else %>
           <%= item[:title] %>
         <% end %>
